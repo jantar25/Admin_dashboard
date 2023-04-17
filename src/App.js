@@ -13,7 +13,7 @@ function App () {
   return(
     <Router>
       <Routes>
-        {admin ? 
+        {!admin ? 
         <Route exact path="/" element={<Login/>} /> :
         <Route exact path="*" element= {
           <div className='dashboard-container'>
