@@ -4,7 +4,7 @@ import DashboardHeader from '../../components/DashboardHeader';
 import all_orders from '../../constants/orders';
 import {calculateRange, sliceData} from '../../utils/table-pagination';
 
-import '../styles.css';
+import './styles.css';
 import DoneIcon from '../../assets/icons/done.svg';
 import CancelIcon from '../../assets/icons/cancel.svg';
 import RefundedIcon from '../../assets/icons/refunded.svg';
@@ -18,7 +18,7 @@ function Orders () {
     useEffect(() => {
         setPagination(calculateRange(all_orders, 5));
         setOrders(sliceData(all_orders, page, 5));
-    }, []);
+    }, [page]);
 
     // Search
     const __handleSearch = (event) => {
@@ -61,17 +61,16 @@ function Orders () {
                 </div>
 
                 <table>
-                    <thead>
-                        <th>ID</th>
-                        <th>DATE</th>
-                        <th>STATUS</th>
-                        <th>COSTUMER</th>
-                        <th>PRODUCT</th>
-                        <th>REVENUE</th>
-                    </thead>
-
                     {orders.length !== 0 ?
                         <tbody>
+                            <tr>
+                                <th>ID</th>
+                                <th>DATE</th>
+                                <th>STATUS</th>
+                                <th>COSTUMER</th>
+                                <th>PRODUCT</th>
+                                <th>REVENUE</th>
+                            </tr>
                             {orders.map((order, index) => (
                                 <tr key={index}>
                                     <td><span>{order.id}</span></td>
