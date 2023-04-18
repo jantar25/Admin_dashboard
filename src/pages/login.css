@@ -53,17 +53,21 @@ form img {
     align-items: center;
     padding: 5px;
     margin-top: 10px;
-    background: #000;
-    border: 1px solid #fff;
+    background: #fff;
+    border: 1px solid #000;
 }
 
 .input-field input {
     border: none;
-    padding: 10px;
-    background: #000;
+    padding: 5px 10px;
+    background: #fff;
     width: 250px;
-    color: #fff;
     font-size: 1rem;
+}
+
+.input-field .icon-container {
+    color: gray;
+    font-size: 1.5rem;
 }
 
 .input-container {

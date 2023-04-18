@@ -1,12 +1,19 @@
 import React,{useState} from 'react'
-import ProductIcon from '../assets/icons/product.svg';
 import UserIcon from '../assets/icons/user.svg';
+import { AiFillEyeInvisible,AiFillEye,AiFillMail } from 'react-icons/ai'
 
 import './login.css'
 
 const Login = () => {
+  const [passwordType, setPasswordType] = useState("password");
   const [userCode,setUserCode] = useState('')
   const [password,setPassword] = useState('')
+
+  const togglePassword = () => {
+    passwordType==="password"?
+     setPasswordType("text") :
+    setPasswordType("password")
+  }
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -31,18 +38,22 @@ const Login = () => {
                   value={userCode} 
                   placeholder="Code d'utilisateur"
                   onChange={(e)=> setUserCode(e.target.value)} />
-                <img src={ProductIcon} alt='code-icon' />
+                <div className='icon-container'>
+                  <AiFillMail />
+                </div>
               </div>
             </div>
             <div className='input-container'>
               <label>Mot de passe</label>
               <div className='input-field'>
                 <input 
-                  type='password' 
+                  type={passwordType} 
                   value={password}
                   placeholder="Mot de passe" 
                   onChange={(e)=> setPassword(e.target.value)}/>
-                <img src={UserIcon} alt='code-icon' />
+                <div onClick={togglePassword} className='icon-container'>
+                  {passwordType !== 'text' ? <AiFillEyeInvisible /> : <AiFillEye />}
+                </div>
               </div>
             </div>
             <button type='Submit'>Connectez-vous</button>
