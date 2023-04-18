@@ -19,9 +19,13 @@ const Login = () => {
     <div className='login-container'>
       <div className='login-form'>
         <form onSubmit={handleLogin}>
-            <div>
+            <div className='title'>
+              <img src={UserIcon} alt='connection' />
+              <h3>Connection</h3>
+            </div>
+            <div className='input-container'>
               <label>Code d'utilisateur</label>
-              <div>
+              <div className='input-field'>
                 <input 
                   type='text'
                   value={userCode} 
@@ -30,9 +34,9 @@ const Login = () => {
                 <img src={ProductIcon} alt='code-icon' />
               </div>
             </div>
-            <div>
+            <div className='input-container'>
               <label>Mot de passe</label>
-              <div>
+              <div className='input-field'>
                 <input 
                   type='password' 
                   value={password}
@@ -44,7 +48,7 @@ const Login = () => {
             <button type='Submit'>Connectez-vous</button>
           </form>
       </div>
-      <footer>2023</footer>
+      <footer>Copyright © 2023 Bakanna Technology SARL</footer>
     </div>
   )
 }

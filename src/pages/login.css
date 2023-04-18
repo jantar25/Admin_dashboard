@@ -6,14 +6,72 @@
     align-items: center;
 }
 
-.login-form form {
+form {
     padding: 20px;
     background: #b6afaf;
-    border-radius: 10px;
+    border-radius: 5px;
 }
-.login-container footer{
+footer{
     height: 60px;
-    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #000;
     color: aliceblue;
+    text-align: center;
+    padding: 0 4%;
+}
+
+form img {
+    width: 1.5rem;
+}
+
+.title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+    padding: 10px 0;
+    margin-bottom: 20px;
+
+}
+
+.title img {
+    width: 2rem;
+    margin-right: .5rem;
+}
+
+.title h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0;
+}
+
+.input-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin-top: 10px;
+    background: #000;
+    border: 1px solid #fff;
+}
+
+.input-field input {
+    border: none;
+    padding: 10px;
+    background: #000;
+    width: 250px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.input-container {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
 }
