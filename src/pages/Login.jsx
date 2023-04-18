@@ -3,6 +3,7 @@ import UserIcon from '../assets/icons/user.svg';
 import { AiFillEyeInvisible,AiFillEye,AiFillMail } from 'react-icons/ai'
 
 import './login.css'
+import logo from '../assets/images/logo.png'
 
 const Login = () => {
   const [passwordType, setPasswordType] = useState("password");
@@ -25,6 +26,7 @@ const Login = () => {
   return (
     <div className='login-container'>
       <div className='login-form'>
+        <img src={logo} alt='logo' className='logo' />
         <form onSubmit={handleLogin}>
             <div className='title'>
               <img src={UserIcon} alt='connection' />
