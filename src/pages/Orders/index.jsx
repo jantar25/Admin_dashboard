@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import DashboardHeader from '../../components/DashboardHeader';
 
 import all_orders from '../../constants/orders';
 import {calculateRange, sliceData} from '../../utils/table-pagination';
@@ -44,9 +43,7 @@ function Orders () {
 
     return(
         <div className='dashboard-content'>
-            <DashboardHeader
-                btnText="New Order" />
-
+            <button className='dashbord-header-btn'>Ajouter Client</button>
             <div className='dashboard-content-container'>
                 <div className='dashboard-content-header'>
                     <h2>Orders List</h2>

@@ -3,13 +3,17 @@ import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom';
 
 import SideBar from './components/Sidebar';
 import sidebar_menu from './constants/sidebar-menu';
+import DashboardHeader from './components/DashboardHeader';
 
 import './App.css';
 import Orders from './pages/Orders';
+import Repport from './pages/Repport/Repport';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Account from './pages/Account/Account';
 import Login from './pages/Login'
 
 function App () {
-  const admin = false
+  const admin = true
   return(
     <Router>
       <Routes>
@@ -19,11 +23,12 @@ function App () {
           <div className='dashboard-container'>
             <SideBar menu={sidebar_menu} />
             <div className='dashboard-body'>
+                <DashboardHeader />
                 <Routes>
-                  <Route path="/" element={<div></div>} />
-                  <Route exact path="/orders" element={< Orders/>} />
-                  <Route exact path="/locations" element={<div></div>} />
-                  <Route exact path="/profile" element={<div></div>} />
+                  <Route path="/" element={<Dashboard />} />
+                  <Route exact path="/clients" element={< Orders/>} />
+                  <Route exact path="/rapport" element={<Repport />} />
+                  <Route exact path="/profile" element={<Account />} />
                 </Routes>
             </div>
         </div>

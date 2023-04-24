@@ -18,7 +18,7 @@ function SideBar ({ menu }) {
                 setActive(element.id);
             }
         });
-    }, [location.pathname])
+    }, [menu,location.pathname])
 
     const __navigate = (id) => {
         setActive(id);

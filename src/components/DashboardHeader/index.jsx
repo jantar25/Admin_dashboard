@@ -1,20 +1,16 @@
 import React from 'react';
 
 import './styles.css';
-import NotificationIcon from '../../assets/icons/notification.svg';
 import SettingsIcon from '../../assets/icons/settings.svg';
+import NotificationIcon from '../../assets/icons/notification.svg';
 
-function DashboardHeader ({ btnText, onClick }) {
+function DashboardHeader () {
     return(
         <div className='dashbord-header-container'>
-            {btnText && 
-                <button className='dashbord-header-btn' onClick={onClick}>{btnText}</button>
-            }
-
             <div className='dashbord-header-right'>
                 <img 
                     src={NotificationIcon}
-                    alt='notification-icon'
+                    alt='settings-icon'
                     className='dashbord-header-icon' />
                 <img 
                     src={SettingsIcon}
@@ -22,7 +18,12 @@ function DashboardHeader ({ btnText, onClick }) {
                     className='dashbord-header-icon' />
                 <img
                     className='dashbord-header-avatar'
-                    src='https://reqres.in/img/faces/9-image.jpg' />
+                    src='https://reqres.in/img/faces/9-image.jpg' 
+                    alt='user-avatar'/>
+                <div className='dashbord-header-title'>
+                    <h4>Glody</h4>
+                    <span>Administrateur</span>
+                </div>
             </div>
         </div>
     )
