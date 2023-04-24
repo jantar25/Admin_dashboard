@@ -1,28 +1,30 @@
 .login-form {
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0 1rem;
+    background: aliceblue;
 }
 
 .login-form .logo {
-    width: 3rem;
-    margin-bottom: 1rem;
+    width: 6rem;
+    margin-bottom: .5rem;
 }
 
 form {
     padding: 20px;
-    background: #b6afaf;
+    background: #fff;
     border-radius: 5px;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
 }
 footer{
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000;
+    background: #2075bc;
     color: aliceblue;
     text-align: center;
     padding: 0 4%;
@@ -36,21 +38,16 @@ form img {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #2075bc;
     padding: 10px 0;
     margin-bottom: 20px;
-
+    font-size: 1.2rem;
+    color: #2075bc;
 }
 
-.title img {
-    width: 2rem;
-    margin-right: .5rem;
-}
 
 .title h3 {
-    font-size: 1.5rem;
-    color: #fff;
-    margin: 0;
+    margin: 0 5px;;
 }
 
 .input-field {
@@ -60,29 +57,46 @@ form img {
     padding: 5px;
     margin-top: 10px;
     background: #fff;
-    border: 1px solid #000;
+    border: 1px solid #2075bc;
 }
 
 .input-field input {
     border: none;
-    padding: 5px 10px;
+    padding: 2px 5px;
     background: #fff;
     font-size: 1rem;
 }
 
+.input-field input:focus {
+    outline: 0;
+}
+
 .input-field .icon-container {
-    color: gray;
+    color: #2075bc;
     font-size: 1.5rem;
 }
 
 .input-container {
-    color: #fff;
+    color: #2075bc;
     margin-bottom: 20px;
 }
 
 button {
     padding: 10px 20px;
     font-size: 1rem;
+    color: #fff;
+    background: #2075bc;
+    border: none;
+    border-radius: 5px;
+    transition: .5s ease-in-out;
+}
+
+button:hover {
+    padding: 10px 25px;
+}
+
+.btn {
+    cursor: pointer;
 }
 
 
@@ -91,7 +105,7 @@ button {
         width: 250px;
     }
     .login-form .logo {
-        width: 5rem;
-        margin-bottom: 3rem;
+        width: 8rem;
+        margin-bottom: 1rem;
     }
 }
