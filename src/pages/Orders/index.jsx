@@ -7,12 +7,14 @@ import './styles.css';
 import DoneIcon from '../../assets/icons/done.svg';
 import CancelIcon from '../../assets/icons/cancel.svg';
 import RefundedIcon from '../../assets/icons/refunded.svg';
+import ClientForm from '../../components/ClientForm/ClientForm';
 
 function Orders () {
     const [search, setSearch] = useState('');
     const [orders, setOrders] = useState(all_orders);
     const [page, setPage] = useState(1);
     const [pagination, setPagination] = useState([]);
+    const [toggleForm,setToggleForm] = useState(false);
 
     useEffect(() => {
         setPagination(calculateRange(all_orders, 5));
@@ -41,12 +43,23 @@ function Orders () {
         setOrders(sliceData(all_orders, new_page, 5));
     }
 
+    const handleToggleForm = () => {
+        setToggleForm(!toggleForm)
+    }
+
     return(
         <div className='dashboard-content'>
-            <button className='dashbord-header-btn'>Ajouter Client</button>
             <div className='dashboard-content-container'>
+                {toggleForm && 
+                <div className='form-container'>
+                    <ClientForm toggleForm={handleToggleForm} />
+                </div>
+                }
                 <div className='dashboard-content-header'>
-                    <h2>Orders List</h2>
+                    <button className='dashbord-header-btn' 
+                      onClick={handleToggleForm}>
+                        Ajouter Client
+                    </button>
                     <div className='dashboard-content-search'>
                         <input
                             type='text'

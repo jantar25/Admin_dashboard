@@ -5,6 +5,7 @@
     overflow: auto;
 }
 .dashboard-content-container {
+    position: relative;
     margin: 1em;
     background-color: white;
     border: none;
@@ -29,11 +30,6 @@
 }
 
 .dashbord-header-btn {
-    max-width: 20%;
-    padding: 0.8em;
-    padding-left: 2em;
-    padding-right: 2em;
-    margin: 1rem;
     cursor: pointer;
     color: #FFFFFF;
     font-size: 0.9rem;
@@ -173,4 +169,13 @@ td span {
     color: gray;
     font-weight: 700;
     border-color: #FFFFFF;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
 }
