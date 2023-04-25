@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom';
 import SideBarItem from './sidebar-item';
 
 import './styles.css';
-import logo from '../../assets/images/logo.png';
 import LogoutIcon from '../../assets/icons/logout.svg';
 
 function SideBar ({ menu }) {
@@ -27,13 +26,6 @@ function SideBar ({ menu }) {
     return(
         <nav className='sidebar'>
             <div className='sidebar-container'>
-                <div className='sidebar-logo-container'>
-                    <img
-                        src={logo}
-                        alt="logo" />
-                </div>
-
-                <div className='sidebar-container'>
                     <div className='sidebar-items'>
                         {menu.map((item, index) => (
                             <div key={index} onClick={() => __navigate(item.id)}>
@@ -52,7 +44,6 @@ function SideBar ({ menu }) {
                             className='sidebar-item-icon' />
                     </div>
                 </div>
-            </div>
         </nav>
     )
 }

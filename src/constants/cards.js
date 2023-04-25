@@ -1,20 +1,22 @@
 const cardItems = [
     {
         id: 1,
-        title: 'Accueil',
+        title: 'Depots',
+        amount: 51300,
+        lastIncome: 59300,
     },
     {
         id: 2,
-        title: 'Clients',
+        title: 'Interets',
+        amount: 5500,
+        lastIncome: 10300,
     },
     {
         id: 3,
-        title: 'Rapport',
+        title: 'Clients',
+        amount: 235,
+        lastIncome: 210,
     },
-    {
-        id: 4,
-        title: 'Mon compte',
-    }
 ]
 
 export default cardItems;

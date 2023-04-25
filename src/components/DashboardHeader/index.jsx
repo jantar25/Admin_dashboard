@@ -3,10 +3,14 @@ import React from 'react';
 import './styles.css';
 import SettingsIcon from '../../assets/icons/settings.svg';
 import NotificationIcon from '../../assets/icons/notification.svg';
+import logo from '../../assets/images/logo.png';
 
 function DashboardHeader () {
     return(
         <div className='dashbord-header-container'>
+            <div className='dashbord-header-left'>
+                <img src={logo} alt="logo" />
+            </div>
             <div className='dashbord-header-right'>
                 <img 
                     src={NotificationIcon}

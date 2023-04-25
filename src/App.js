@@ -20,10 +20,11 @@ function App () {
         {!admin ? 
         <Route exact path="/" element={<Login/>} /> :
         <Route exact path="*" element= {
-          <div className='dashboard-container'>
+          <div>
+            <DashboardHeader />
+            <div className='dashboard-container'>
             <SideBar menu={sidebar_menu} />
             <div className='dashboard-body'>
-                <DashboardHeader />
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route exact path="/clients" element={< Orders/>} />
@@ -31,7 +32,8 @@ function App () {
                   <Route exact path="/profile" element={<Account />} />
                 </Routes>
             </div>
-        </div>
+            </div>
+          </div>
         } />
         }
       </Routes>
