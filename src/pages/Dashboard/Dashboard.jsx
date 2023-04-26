@@ -5,10 +5,10 @@ import Chart from '../../components/Chart/Chart'
 
 const Dashboard = () => {
   return (
-    <div>
+    <>
       <Cards />
       <Chart />
-    </div>
+    </>
   )
 }
 

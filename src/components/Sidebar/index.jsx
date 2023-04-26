@@ -6,7 +6,7 @@ import SideBarItem from './sidebar-item';
 import './styles.css';
 import LogoutIcon from '../../assets/icons/logout.svg';
 
-function SideBar ({ menu }) {
+function SideBar ({ menu,isOpen,handleSidebar }) {
     const location = useLocation();
 
     const [active, setActive] = useState(1);
@@ -21,10 +21,11 @@ function SideBar ({ menu }) {
 
     const __navigate = (id) => {
         setActive(id);
+        handleSidebar()
     }
 
     return(
-        <nav className='sidebar'>
+        <nav className={`sidebar ${isOpen? 'active' : ''}`}>
             <div className='sidebar-container'>
                     <div className='sidebar-items'>
                         {menu.map((item, index) => (
