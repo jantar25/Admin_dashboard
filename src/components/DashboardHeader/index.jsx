@@ -1,18 +1,19 @@
 import React from 'react';
 import { FiMenu } from 'react-icons/fi'
+import { GrFormClose } from 'react-icons/gr'
 
 import './styles.css';
 import SettingsIcon from '../../assets/icons/settings.svg';
 import NotificationIcon from '../../assets/icons/notification.svg';
 import logo from '../../assets/images/logo.png';
 
-function DashboardHeader ({handleSidebar}) {
+function DashboardHeader ({handleSidebar,isOpen}) {
     return(
         <div className='dashbord-header-container'>
             <div className='dashbord-header-left'>
                 <img src={logo} alt="logo" />
-                <div className="menu-container">
-                    <FiMenu onClick={handleSidebar} />
+                <div className="menu-container" onClick={handleSidebar}>
+                    {!isOpen? <FiMenu />: <GrFormClose />}
                 </div>
             </div>
             <div className='dashbord-header-right'>

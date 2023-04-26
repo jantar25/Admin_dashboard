@@ -27,17 +27,17 @@ function App () {
         <Route exact path="/" element={<Login/>} /> :
         <Route exact path="*" element= {
           <div>
-            <DashboardHeader handleSidebar={handleSidebar} />
-            <div className='dashboard-container'>
-            <SideBar menu={sidebar_menu} isOpen={toggleSidebar} handleSidebar={handleSidebar}/>
-            <div className='dashboard-body'>
-                <Routes>
-                  <Route path="/" element={<Dashboard />} />
-                  <Route exact path="/clients" element={< Orders/>} />
-                  <Route exact path="/rapport" element={<Repport />} />
-                  <Route exact path="/profile" element={<Account />} />
-                </Routes>
-            </div>
+            <DashboardHeader handleSidebar={handleSidebar} isOpen={toggleSidebar}/>
+            <div>
+              <SideBar menu={sidebar_menu} isOpen={toggleSidebar} handleSidebar={handleSidebar}/>
+              <div className='dashboard-body'>
+                  <Routes>
+                    <Route path="/" element={<Dashboard />} />
+                    <Route exact path="/clients" element={< Orders/>} />
+                    <Route exact path="/rapport" element={<Repport />} />
+                    <Route exact path="/profile" element={<Account />} />
+                  </Routes>
+              </div>
             </div>
           </div>
         } />

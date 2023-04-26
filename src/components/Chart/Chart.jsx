@@ -1,8 +1,6 @@
 import React,{ useState } from 'react'
 import ReactApexChart from 'react-apexcharts'
 
-import './Chart.css'
-
 const Chart = () => {
   const [state,setState] = useState({
     series: [{
