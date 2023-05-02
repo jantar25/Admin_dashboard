@@ -13,7 +13,7 @@ const ClientForm = ({toggleForm}) => {
         <form onSubmit={hanldeSubmit}>
             <h3>REMPLIS LE FORMULAIRE CI DESSOUS</h3>
             <div className="divide-form">
-                <div>
+                <div className='form-left'>
                     <h5>INFORMATION DU CLIENT</h5>
                     <div className='input-container'>
                         <label htmlFor='name'>Nom:</label>
@@ -37,7 +37,7 @@ const ClientForm = ({toggleForm}) => {
                         </select>
                     </div>
                 </div>
-                <div>
+                <div className='form-right'>
                     <h5>INFORMATION DE L'ENREGISTREUR</h5>
                     <div className='input-container'>
                         <label htmlFor='number'>Numero de l'agent:</label>
@@ -45,8 +45,10 @@ const ClientForm = ({toggleForm}) => {
                     </div>
                 </div>
             </div>
-            <input type='submit' value='Enregistrer' />
-            <button onClick={toggleForm}>Cancel</button>
+            <div className='form-bottom'>
+                <input type='submit' value='Enregistrer' className='submit' />
+                <button onClick={toggleForm} className='cancel'>Fermer</button>
+            </div>
         </form>
     </div>
   )
