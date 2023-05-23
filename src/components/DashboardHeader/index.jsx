@@ -30,7 +30,7 @@ function DashboardHeader ({handleSidebar,isOpen}) {
                     src='https://reqres.in/img/faces/9-image.jpg' 
                     alt='user-avatar'/>
                 <div className='dashbord-header-title'>
-                    <h4>Glody</h4>
+                    <h6>Glody</h6>
                     <span>Administrateur</span>
                 </div>
             </div>
