@@ -6,8 +6,8 @@ import sidebar_menu from './constants/sidebar-menu';
 import DashboardHeader from './components/DashboardHeader';
 
 import './App.css';
-import Orders from './pages/Orders';
-import Repport from './pages/Repport/Repport';
+import Clients from './pages/Clients';
+import Sellers from './pages/Sellers';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Account from './pages/Account/Account';
 import Login from './pages/Login'
@@ -33,8 +33,8 @@ function App () {
               <div className='dashboard-body'>
                   <Routes>
                     <Route path="/" element={<Dashboard />} />
-                    <Route exact path="/clients" element={< Orders/>} />
-                    <Route exact path="/rapport" element={<Repport />} />
+                    <Route exact path="/clients" element={< Clients/>} />
+                    <Route exact path="/sellers" element={<Sellers />} />
                     <Route exact path="/profile" element={<Account />} />
                   </Routes>
               </div>

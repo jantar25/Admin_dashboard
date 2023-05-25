@@ -19,8 +19,8 @@ const sidebar_menu = [
     {
         id: 3,
         icon: NotificationIcon,
-        path: '/rapport',
-        title: 'Rapport',
+        path: '/sellers',
+        title: 'Marchands',
     },
     {
         id: 4,

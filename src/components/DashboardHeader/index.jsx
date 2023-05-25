@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiMenu } from 'react-icons/fi'
-import { GrFormClose } from 'react-icons/gr'
+import { AiOutlineClose } from 'react-icons/ai'
 
 import './styles.css';
 import SettingsIcon from '../../assets/icons/settings.svg';
@@ -11,10 +11,10 @@ function DashboardHeader ({handleSidebar,isOpen}) {
     return(
         <div className='dashbord-header-container'>
             <div className='dashbord-header-left'>
-                <img src={logo} alt="logo" />
                 <div className="menu-container" onClick={handleSidebar}>
-                    {!isOpen? <FiMenu />: <GrFormClose />}
+                    {!isOpen? <FiMenu />: <AiOutlineClose />}
                 </div>
+                <img src={logo} alt="logo" />
             </div>
             <div className='dashbord-header-right'>
                 <img 
