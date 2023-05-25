@@ -3,15 +3,14 @@ import React, {useState} from 'react';
 import all_orders from '../../constants/orders';
 
 import './styles.css';
+import Cards from '../../components/Cards/Cards'
 import DoneIcon from '../../assets/icons/done.svg';
 import CancelIcon from '../../assets/icons/cancel.svg';
 import RefundedIcon from '../../assets/icons/refunded.svg';
-import ClientForm from '../../components/ClientForm/ClientForm';
 
 function Orders () {
     const [search, setSearch] = useState('');
     const [orders, setOrders] = useState(all_orders);
-    const [toggleForm,setToggleForm] = useState(false);
 
     // Search
     const __handleSearch = (event) => {
@@ -25,23 +24,11 @@ function Orders () {
     };
 
 
-    const handleToggleForm = () => {
-        setToggleForm(!toggleForm)
-    }
-
     return(
         <div className='dashboard-content'>
+            <Cards /> 
             <div className='dashboard-content-container'>
-                {toggleForm && 
-                <div className='form-container'>
-                    <ClientForm toggleForm={handleToggleForm} />
-                </div>
-                }
                 <div className='dashboard-content-header'>
-                    <button className='dashbord-header-btn' 
-                      onClick={handleToggleForm}>
-                        Ajouter Client
-                    </button>
                     <div className='dashboard-content-search'>
                         <input
                             type='text'

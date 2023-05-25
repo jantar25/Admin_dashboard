@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import all_orders from '../../constants/orders';
 
 import './styles.css';
+import Cards from '../../components/Cards/Cards';
 import DoneIcon from '../../assets/icons/done.svg';
 import CancelIcon from '../../assets/icons/cancel.svg';
 import RefundedIcon from '../../assets/icons/refunded.svg';
@@ -31,6 +32,7 @@ function Orders () {
 
     return(
         <div className='dashboard-content'>
+            <Cards /> 
             <div className='dashboard-content-container'>
                 {toggleForm && 
                 <div className='form-container'>
@@ -40,7 +42,7 @@ function Orders () {
                 <div className='dashboard-content-header'>
                     <button className='dashbord-header-btn' 
                       onClick={handleToggleForm}>
-                        Ajouter Client
+                        Ajouter Marchands
                     </button>
                     <div className='dashboard-content-search'>
                         <input
