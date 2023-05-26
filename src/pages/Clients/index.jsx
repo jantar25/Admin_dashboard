@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import all_orders from '../../constants/orders';
 
 import './styles.css';
+import cardItems from '../../constants/cards'
 import Cards from '../../components/Cards/Cards'
 import DoneIcon from '../../assets/icons/done.svg';
 import CancelIcon from '../../assets/icons/cancel.svg';
@@ -26,7 +27,7 @@ function Orders () {
 
     return(
         <div className='dashboard-content'>
-            <Cards /> 
+            <Cards cardItems={cardItems} /> 
             <div className='dashboard-content-container'>
                 <div className='dashboard-content-header'>
                     <div className='dashboard-content-search'>

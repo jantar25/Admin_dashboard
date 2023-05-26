@@ -14,7 +14,7 @@ import Login from './pages/Login'
 import { useState } from 'react';
 
 function App () {
-  const [toggleSidebar,setToggleSidebar] = useState(false)
+  const [toggleSidebar,setToggleSidebar] = useState(true)
   const admin = true
 
   const handleSidebar = () => {

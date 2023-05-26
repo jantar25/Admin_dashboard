@@ -4,6 +4,7 @@ import all_orders from '../../constants/orders';
 
 import './styles.css';
 import Cards from '../../components/Cards/Cards';
+import cardItems from '../../constants/cards';
 import DoneIcon from '../../assets/icons/done.svg';
 import CancelIcon from '../../assets/icons/cancel.svg';
 import RefundedIcon from '../../assets/icons/refunded.svg';
@@ -32,7 +33,7 @@ function Orders () {
 
     return(
         <div className='dashboard-content'>
-            <Cards /> 
+            <Cards cardItems={cardItems} /> 
             <div className='dashboard-content-container'>
                 {toggleForm && 
                 <div className='form-container'>

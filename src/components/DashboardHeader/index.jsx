@@ -1,18 +1,17 @@
 import React from 'react';
 import { FiMenu } from 'react-icons/fi'
-import { AiOutlineClose } from 'react-icons/ai'
 
 import './styles.css';
 import SettingsIcon from '../../assets/icons/settings.svg';
 import NotificationIcon from '../../assets/icons/notification.svg';
 import logo from '../../assets/images/logo.png';
 
-function DashboardHeader ({handleSidebar,isOpen}) {
+function DashboardHeader ({handleSidebar}) {
     return(
         <div className='dashbord-header-container'>
             <div className='dashbord-header-left'>
                 <div className="menu-container" onClick={handleSidebar}>
-                    {!isOpen? <FiMenu />: <AiOutlineClose />}
+                    <FiMenu />
                 </div>
                 <img src={logo} alt="logo" />
             </div>
