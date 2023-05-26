@@ -7,18 +7,20 @@ import { AiOutlineArrowUp,AiOutlineArrowDown } from 'react-icons/ai';
 import './Card.css'
 
 const Card = ({card}) => {
+  const {id,title,amount,lastIncome,description} = card
+
   return (
     <div className='Card-container'>
         <div className='Card-container-up'>
-          <h2>{card.title}</h2>
+          <h2>{title}</h2>
           <BsThreeDots />
         </div>
         <div className='Card-container-middle'>
-          {card.id === 1 ? 
+          {id === 1 ? 
           <div className='deposit'>
             <RiLuggageDepositFill />
           </div> 
-          : card.id === 2 ?
+          : id === 2 ?
           <div className='interest'>
             <FiDollarSign /> 
           </div>
@@ -26,11 +28,11 @@ const Card = ({card}) => {
             <BsPeopleFill />
           </div> }
           <div className='card-amount-container'>
-            <h2>{card.amount}</h2>
+            <h2>{amount}</h2>
             <div>
-              {(card.amount/card.lastIncome).toFixed(2)} %
+              {(amount/lastIncome).toFixed(2)} %
               <div className='arrow-container'>
-                {(card.amount/card.lastIncome).toFixed(2) > 1 ? 
+                {(amount/lastIncome).toFixed(2) > 1 ? 
                 <span className='increase'>
                   <AiOutlineArrowUp />
                   <span>Increase</span>
@@ -43,7 +45,8 @@ const Card = ({card}) => {
             </div>
           </div>
         </div>
-        <span className='Card-container-bottom'>Pendant ce mois-ci.</span>
+        <span className='Card-container-bottom'>{description}</span>
+     
     </div>
   )
 }

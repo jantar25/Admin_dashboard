@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 
-import all_orders from '../../constants/orders';
+import all_orders from '../../constants/clients';
 
 import './styles.css';
 import Cards from '../../components/Cards/Cards';
-import cardItems from '../../constants/cards';
+import {cardItems} from '../../constants/cards';
 import DoneIcon from '../../assets/icons/done.svg';
 import CancelIcon from '../../assets/icons/cancel.svg';
 import RefundedIcon from '../../assets/icons/refunded.svg';

@@ -1,4 +1,4 @@
-const all_orders = [
+const all_clients = [
     {
         id: "#1236",
         date: "1 Nov, 10:20 AM",
@@ -6,9 +6,9 @@ const all_orders = [
         first_name: "Michael",
         last_name: "Lawson",
         avatar: "https://reqres.in/img/faces/7-image.jpg",
-        product: "Phone Case Pink  x 2",
-        price: "50,00",
-        status: "Paid"
+        operator: "Airtel",
+        telephone: "0785009119",
+        isActive: true,
     },
     {
         id: "#1235",
@@ -17,9 +17,9 @@ const all_orders = [
         first_name: "Lindsay",
         last_name: "Ferguson",
         avatar: "https://reqres.in/img/faces/8-image.jpg",
-        product: "Valvet T-shirt",
-        price: "55,50",
-        status: "Canceled"
+        operator: "MTN",
+        telephone: "0785672213",
+        isActive: true
     },
     {
         id: "#1234",
@@ -28,9 +28,9 @@ const all_orders = [
         first_name: "Tobias",
         last_name: "Funke",
         avatar: "https://reqres.in/img/faces/9-image.jpg",
-        product: "Nike Sport V2",
-        price: "140,20",
-        status: "Paid"
+        operator: "MTN",
+        telephone: "0788882119",
+        isActive: true
     },
     {
         id: "#1233",
@@ -39,9 +39,9 @@ const all_orders = [
         first_name: "Byron",
         last_name: "Fields",
         avatar: "https://reqres.in/img/faces/10-image.jpg",
-        product: "Nike Sport V2",
-        price: "140,20",
-        status: "Refunded"
+        operator: "Airtel",
+        telephone: "0735671133",
+        isActive: true
     },
     {
         id: "#1232",
@@ -50,9 +50,9 @@ const all_orders = [
         first_name: "George",
         last_name: "Edwards",
         avatar: "https://reqres.in/img/faces/11-image.jpg",
-        product: "Nike Sport V2",
-        price: "140,20",
-        status: "Canceled"
+        operator: "Airtel",
+        telephone: "0735003219",
+        isActive: true
     },
     {
         id: "#1231",
@@ -61,9 +61,9 @@ const all_orders = [
         first_name: "Rachel",
         last_name: "Howell",
         avatar: "https://reqres.in/img/faces/12-image.jpg",
-        product: "Nike Sport V2",
-        price: "140,20",
-        status: "Paid"
+        operator: "Airtel",
+        telephone: "0735000119",
+        isActive: false
     },
     {
         id: "#1236",
@@ -72,9 +72,9 @@ const all_orders = [
         first_name: "Michael",
         last_name: "Lawson",
         avatar: "https://reqres.in/img/faces/7-image.jpg",
-        product: "Phone Case Pink  x 2",
-        price: "50,00",
-        status: "Paid"
+        operator: "MTN",
+        telephone: "0785677719",
+        isActive: true
     },
     {
         id: "#1235",
@@ -83,9 +83,9 @@ const all_orders = [
         first_name: "Lindsay",
         last_name: "Ferguson",
         avatar: "https://reqres.in/img/faces/8-image.jpg",
-        product: "Valvet T-shirt",
-        price: "55,50",
-        status: "Canceled"
+        operator: "MTN",
+        telephone: "0785672000",
+        isActive: true
     },
     {
         id: "#1234",
@@ -94,9 +94,9 @@ const all_orders = [
         first_name: "Tobias",
         last_name: "Funke",
         avatar: "https://reqres.in/img/faces/9-image.jpg",
-        product: "Nike Sport V2",
-        price: "140,20",
-        status: "Paid"
+        operator: "MTN",
+        telephone: "0780072119",
+        isActive: false
     },
     {
         id: "#1233",
@@ -105,9 +105,9 @@ const all_orders = [
         first_name: "Byron",
         last_name: "Fields",
         avatar: "https://reqres.in/img/faces/10-image.jpg",
-        product: "Nike Sport V2",
-        price: "140,20",
-        status: "Refunded"
+        operator: "MTN",
+        telephone: "0785672119",
+        isActive: false
     },
     {
         id: "#1232",
@@ -116,9 +116,9 @@ const all_orders = [
         first_name: "George",
         last_name: "Edwards",
         avatar: "https://reqres.in/img/faces/11-image.jpg",
-        product: "Nike Sport V2",
-        price: "140,20",
-        status: "Canceled"
+        operator: "Airtel",
+        telephone: "0735672100",
+        isActive: true
     },
     {
         id: "#1231",
@@ -127,10 +127,10 @@ const all_orders = [
         first_name: "Rachel",
         last_name: "Howell",
         avatar: "https://reqres.in/img/faces/12-image.jpg",
-        product: "Nike Sport V2",
-        price: "140,20",
-        status: "Paid"
+        operator: "Airtel",
+        telephone: "0735672119",
+        isActive: true
     }
 ]
 
-export default all_orders;
+export default all_clients;

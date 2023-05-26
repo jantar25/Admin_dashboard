@@ -1,6 +1,6 @@
 import React from 'react'
 
-import cardItems from '../../constants/cards'
+import {cardItems} from '../../constants/cards'
 import Cards from '../../components/Cards/Cards'
 import Chart from '../../components/Chart/Chart'
 
