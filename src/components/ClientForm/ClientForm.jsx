@@ -17,19 +17,19 @@ const ClientForm = ({toggleForm}) => {
                     <h5>INFORMATION SUR L'ENTREPRISE</h5>
                     <div className='input-container'>
                         <label htmlFor='name'>Nom:</label>
-                        <input name='name' type='text' placeholder='Nom' />
+                        <input name='name' type='text' placeholder='Amazon ltd' />
                     </div>
                     <div className='input-container'>
                         <label htmlFor='surname'>Address:</label>
-                        <input name='surname' type='text' placeholder='Post nom' />
+                        <input name='surname' type='text' placeholder='Gisozi/Kigali' />
                     </div>
                     <div className='input-container'>
                         <label htmlFor='address'>Numero d'impot:</label>
-                        <input name='address' type='text' placeholder='Address' />
+                        <input name='address' type='text' placeholder="TNR09863900" />
                     </div>
                     <div className='input-container'>
                         <label htmlFor='address'>Secteur des operations:</label>
-                        <input name='address' type='text' placeholder='Address' />
+                        <input name='address' type='text' placeholder='Minerais' />
                     </div>
                     <div className='input-container'>
                         <label htmlFor='type'>Type:</label>
@@ -42,18 +42,18 @@ const ClientForm = ({toggleForm}) => {
                     </div>
                     <div className='input-container'>
                         <label htmlFor='address'>Numero telephone:</label>
-                        <input name='address' type='text' placeholder='Address' />
+                        <input name='address' type='text' placeholder='0786523190' />
                     </div>
                 </div>
                 <div className='form-right'>
                     <h5>INFORMATION DU REPRESENTANT</h5>
                     <div className='input-container'>
                         <label htmlFor='number'>Noms:</label>
-                        <input name='number' type='text' placeholder="Noms de l'agent" />
+                        <input name='number' type='text' placeholder="Jonhy Abasik" />
                     </div>
                     <div className='input-container'>
-                        <label htmlFor='number'>Enail:</label>
-                        <input name='number' type='text' placeholder="Email de l'agent" />
+                        <label htmlFor='number'>Email:</label>
+                        <input name='number' type='text' placeholder="john@gmail.com" />
                     </div>
                     <div className='input-container'>
                         <label htmlFor='type'>Type d'identite:</label>
@@ -66,11 +66,11 @@ const ClientForm = ({toggleForm}) => {
                     </div>
                     <div className='input-container'>
                         <label htmlFor='number'>Numero d'identite:</label>
-                        <input name='number' type='text' placeholder="Identite de l'agent" />
+                        <input name='number' type='text' placeholder="AV32190/203" />
                     </div>
                     <div className='input-container'>
                         <label htmlFor='number'>Numero de telephone:</label>
-                        <input name='number' type='text' placeholder="telephone de l'agent" />
+                        <input name='number' type='text' placeholder="0786500090" />
                     </div>
                 </div>
             </div>
