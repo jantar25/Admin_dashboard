@@ -26,7 +26,7 @@ function App () {
         {!admin ? 
         <Route exact path="/" element={<Login/>} /> :
         <Route exact path="*" element= {
-          <div>
+          <div className='app'>
             <DashboardHeader handleSidebar={handleSidebar} isOpen={toggleSidebar}/>
             <div className='container'>
               <SideBar menu={sidebar_menu} isOpen={toggleSidebar} handleSidebar={handleSidebar}/>

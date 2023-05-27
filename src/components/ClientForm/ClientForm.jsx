@@ -11,7 +11,7 @@ const ClientForm = ({toggleForm}) => {
   return (
     <div className='form-container'>
         <form onSubmit={hanldeSubmit}>
-            <h3>REMPLIS LE FORMULAIRE CI DESSOUS</h3>
+            <h3>REMPLISSEZ LE FORMULAIRE CI DESSOUS</h3>
             <div className="divide-form">
                 <div className='form-left'>
                     <h5>INFORMATION DU CLIENT</h5>

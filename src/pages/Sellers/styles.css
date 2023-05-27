@@ -5,7 +5,6 @@
     overflow: auto;
 }
 .dashboard-content-container {
-    position: relative;
     margin: 1em;
     background-color: white;
     border: none;
@@ -48,7 +47,6 @@
     display: inline-flex;
     -webkit-box-align: center;
     align-items: center;
-    position: relative;
     background-color: transparent;
     font-size: 0.875rem;
     border-radius: 0.375rem;
@@ -127,13 +125,33 @@ td span {
     margin-right: 10px;
 }
 
-.form-container {
-    position: absolute;
+.modal-container,.modal-cover {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
     top: 0;
-    bottom: 0;
     left: 0;
     right: 0;
-    z-index: 9;
+    left: 0;
+    z-index: 99;
+}
+
+.modal-cover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.form-container {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 2%;
+    right: 2%;
+    z-index: 99;
+    overflow-y: auto;
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
 
 @media screen and (max-width: 480px) {

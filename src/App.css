@@ -1,3 +1,7 @@
+.app {
+    position: relative;
+}
+
 .container {
     display: flex;
 }

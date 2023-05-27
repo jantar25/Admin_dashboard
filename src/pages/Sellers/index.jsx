@@ -26,20 +26,29 @@ function Orders () {
 
     const sellers = handleSearch()
 
-
     const handleToggleForm = () => {
         setToggleForm(!toggleForm)
     }
 
+    if(toggleForm){
+        document.body.classList.add('overflow-hidden')
+      } else  {
+          document.body.classList.remove('overflow-hidden')
+      }
+
     return(
         <div className='dashboard-content'>
-            <Cards cardItems={cardItemsClients} /> 
-            <div className='dashboard-content-container'>
-                {toggleForm && 
-                <div className='form-container'>
-                    <ClientForm toggleForm={handleToggleForm} />
+            <Cards cardItems={cardItemsClients} />
+            {toggleForm &&
+                <div className='modal-container'>
+                    <div className='modal-cover'>
+                        <div className='form-container'>
+                            <ClientForm toggleForm={handleToggleForm} />
+                        </div>
+                    </div>
                 </div>
                 }
+            <div className='dashboard-content-container'>
                 <div className='dashboard-content-header'>
                     <button className='dashbord-header-btn' 
                       onClick={handleToggleForm}>
