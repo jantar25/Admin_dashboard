@@ -14,7 +14,7 @@ import Login from './pages/Login'
 import { useState } from 'react';
 
 function App () {
-  const [toggleSidebar,setToggleSidebar] = useState(true)
+  const [toggleSidebar,setToggleSidebar] = useState(false)
   const admin = true
 
   const handleSidebar = () => {
@@ -28,7 +28,7 @@ function App () {
         <Route exact path="*" element= {
           <div>
             <DashboardHeader handleSidebar={handleSidebar} isOpen={toggleSidebar}/>
-            <div>
+            <div className='container'>
               <SideBar menu={sidebar_menu} isOpen={toggleSidebar} handleSidebar={handleSidebar}/>
               <div className='dashboard-body'>
                   <Routes>

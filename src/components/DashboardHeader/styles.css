@@ -7,7 +7,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background: #015C92;
+    background: #2075bc;
     box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
     z-index: 10;
 }
@@ -74,3 +74,9 @@
       display: none;
     }
   }
+
+  @media only screen and (min-width: 992px) {
+    .dashbord-header-left .menu-container {
+        display: none;
+    }
+}

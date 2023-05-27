@@ -5,14 +5,10 @@ import all_clients from '../../constants/clients';
 import './styles.css';
 import { cardItemsClients } from '../../constants/cards'
 import Cards from '../../components/Cards/Cards'
-// import DoneIcon from '../../assets/icons/done.svg';
-// import CancelIcon from '../../assets/icons/cancel.svg';
-// import RefundedIcon from '../../assets/icons/refunded.svg';
 
-function Orders () {
+function Clients () {
     const [search, setSearch] = useState();
 
-    // Search
     const handleSearch = () => {
         if(search === undefined) {
             return all_clients
@@ -38,34 +34,35 @@ function Orders () {
                             onChange={(e)=>setSearch(e.target.value)} />
                     </div>
                 </div>
-
-                <table>
-                    {clients.length !== 0 ?
-                        <tbody>
-                            <tr>
-                                <th>ID</th>
-                                <th>NOM</th>
-                                <th>POST-NOM</th>
-                                <th>TELEPHONE</th>
-                                <th>OPERATEUR</th>
-                                <th>DATE D'ADHESION</th>
-                            </tr>
-                            {clients.map((client, index) => (
-                                <tr key={index}>
-                                    <td><span>{client.id}</span></td>
-                                    <td><span>{client.first_name}</span></td>
-                                    <td><span>{client.last_name}</span></td>
-                                    <td><span>+25{client.telephone}</span></td>
-                                    <td><span>{client.operator}</span></td>
-                                    <td><span>{client.date}</span></td>
+                <div className='table-container'>
+                    <table>
+                        {clients.length !== 0 ?
+                            <tbody>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NOM</th>
+                                    <th>POST-NOM</th>
+                                    <th>TELEPHONE</th>
+                                    <th>OPERATEUR</th>
+                                    <th>DATE D'ADHESION</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    : null}
-                </table>
+                                {clients.map((client, index) => (
+                                    <tr key={index}>
+                                        <td><span>{client.id}</span></td>
+                                        <td><span>{client.first_name}</span></td>
+                                        <td><span>{client.last_name}</span></td>
+                                        <td><span>+25{client.telephone}</span></td>
+                                        <td><span>{client.operator}</span></td>
+                                        <td><span>{client.date}</span></td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        : null}
+                    </table>
+                </div>
             </div>
         </div>
     )
 }
 
-export default Orders;
+export default Clients;

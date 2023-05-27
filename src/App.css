@@ -1,6 +1,10 @@
+.container {
+    display: flex;
+}
+
 .dashboard-body {
-    padding: 0 10%;
-    margin-top: 0;
+    padding: 0 2%;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 768px) {
