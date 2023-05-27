@@ -5,6 +5,7 @@ import all_clients from '../../constants/clients';
 import './styles.css';
 import { cardItemsClients } from '../../constants/cards'
 import Cards from '../../components/Cards/Cards'
+import Table from '../../components/Table/Table';
 
 function Clients () {
     const [search, setSearch] = useState();
@@ -34,32 +35,17 @@ function Clients () {
                             onChange={(e)=>setSearch(e.target.value)} />
                     </div>
                 </div>
-                <div className='table-container'>
-                    <table>
-                        {clients.length !== 0 ?
-                            <tbody>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>NOM</th>
-                                    <th>POST-NOM</th>
-                                    <th>TELEPHONE</th>
-                                    <th>OPERATEUR</th>
-                                    <th>DATE D'ADHESION</th>
-                                </tr>
-                                {clients.map((client, index) => (
-                                    <tr key={index}>
-                                        <td><span>{client.id}</span></td>
-                                        <td><span>{client.first_name}</span></td>
-                                        <td><span>{client.last_name}</span></td>
-                                        <td><span>+25{client.telephone}</span></td>
-                                        <td><span>{client.operator}</span></td>
-                                        <td><span>{client.date}</span></td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        : null}
-                    </table>
-                </div>
+                <Table 
+                    head={['ID','NOM','POST-NOM','TELEPHONE','OPERATEUR',"DATE D'ADHESION"]}
+                    body={clients.map(client=>([
+                        client.id,
+                        client.first_name,
+                        client.last_name,
+                        client.telephone,
+                        client.operator,
+                        client.date
+                    ]))}
+                    />
             </div>
         </div>
     )

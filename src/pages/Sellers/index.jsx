@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 
 import all_Sellers from '../../constants/sellers';
+import Table from '../../components/Table/Table';
 
 import './styles.css';
 import Cards from '../../components/Cards/Cards';
 import {cardItemsClients} from '../../constants/cards';
-import DoneIcon from '../../assets/icons/done.svg';
-import CancelIcon from '../../assets/icons/cancel.svg';
 import ClientForm from '../../components/ClientForm/ClientForm';
 
 function Orders () {
@@ -63,44 +62,16 @@ function Orders () {
                             onChange={e =>setSearch(e.target.value)} />
                     </div>
                 </div>
-                <table>
-                    {sellers.length !== 0 ?
-                        <tbody>
-                            <tr>
-                                <th>ID</th>
-                                <th>ENTREPRISE</th>
-                                <th>REPRESENTANT</th>
-                                <th>TYPE</th>
-                                <th>STATUS</th>
-                                <th>INFO</th>
-                            </tr>
-                            {sellers.map((seller, index) => (
-                                <tr key={index}>
-                                    <td><span>{seller.id}</span></td>
-                                    <td><span>{seller.compagny}</span></td>
-                                    <td><span>{seller.represent}</span></td>
-                                    <td><span>{seller.type}</span></td>
-                                    <td>
-                                        <div>
-                                            {seller.status === 'active' ?
-                                                <img
-                                                    src={DoneIcon}
-                                                    alt='paid-icon'
-                                                    className='dashboard-content-icon' />
-                                                : <img
-                                                    src={CancelIcon}
-                                                    alt='canceled-icon'
-                                                    className='dashboard-content-icon' />
-                                           }
-                                            <span>{seller.status}</span>
-                                        </div>
-                                    </td>
-                                    <td><button>Info</button></td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    : null}
-                </table>
+                <Table 
+                    head={['ID','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"PLUS D'INFO"]}
+                    body={sellers.map(seller=>([
+                        seller.id,
+                        seller.compagny,
+                        seller.represent,
+                        seller.type,
+                        seller.status
+                    ]))}
+                    />
             </div>
         </div>
     )

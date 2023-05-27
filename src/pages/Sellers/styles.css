@@ -1,11 +1,7 @@
 .dashboard-content {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
     overflow: auto;
 }
 .dashboard-content-container {
-    margin: 1em;
     background-color: white;
     border: none;
     border-radius: 10px;
@@ -75,10 +71,12 @@
     font-size: 0.75rem;
     padding: 0.625rem;
 }
-table {
-    width: 100%;
+
+/* .table-container {
     margin: auto;
+    overflow-x: auto;
 }
+
 th {
     text-align: left;
     padding: 12px 24px;
@@ -120,10 +118,15 @@ td span {
     color: gray;
     font-weight: 700;
 }
+
+.status-container {
+    display: flex;
+    align-items: center;
+}
 .dashboard-content-icon {
     width: 20px;
     margin-right: 10px;
-}
+} */
 
 .modal-container,.modal-cover {
     position: fixed;
