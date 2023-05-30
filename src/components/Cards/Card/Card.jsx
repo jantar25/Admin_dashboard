@@ -1,36 +1,26 @@
 import React from 'react'
-import {RiLuggageDepositFill} from 'react-icons/ri'
-import {FiDollarSign} from 'react-icons/fi'
-import {BsPeopleFill,BsThreeDots} from 'react-icons/bs'
+import {BsThreeDots} from 'react-icons/bs'
 import { AiOutlineArrowUp,AiOutlineArrowDown } from 'react-icons/ai';
 
 import './Card.css'
 
 const Card = ({card}) => {
-  const {id,title,amount,lastIncome,description} = card
+  const {title,amount,lastIncome,description,Icon,color,background} = card
 
   return (
     <div className='Card-container'>
         <div className='Card-container-up'>
-          <h2>{title}</h2>
+          <h2 style={{color}}>{title}</h2>
           <BsThreeDots />
         </div>
         <div className='Card-container-middle'>
-          {id === 1 ? 
-          <div className='deposit'>
-            <RiLuggageDepositFill />
+          <div className='deposit' style={{background}}>
+            <Icon fill={color} />
           </div> 
-          : id === 2 ?
-          <div className='interest'>
-            <FiDollarSign /> 
-          </div>
-          : <div className='clients'>
-            <BsPeopleFill />
-          </div> }
           <div className='card-amount-container'>
-            <h2>{amount}</h2>
+            <h2 style={{color}}>{amount}</h2>
             <div>
-              {(amount/lastIncome).toFixed(2)} %
+              <span style={{color}}>{(amount/lastIncome).toFixed(2)} %</span>
               <div className='arrow-container'>
                 {(amount/lastIncome).toFixed(2) > 1 ? 
                 <span className='increase'>

@@ -1,6 +1,6 @@
 import DashboardIcon from '../assets/icons/dashboard.svg';
-import NotificationIcon from '../assets/icons/notification.svg';
-import ClientsIcon from '../assets/icons/shipping.svg';
+import SellerIcon from '../assets/icons/seller.svg';
+import ClientsIcon from '../assets/icons/clients.svg';
 import UserIcon from '../assets/icons/user.svg';
 
 const sidebar_menu = [
@@ -18,7 +18,7 @@ const sidebar_menu = [
     },
     {
         id: 3,
-        icon: NotificationIcon,
+        icon: SellerIcon,
         path: '/sellers',
         title: 'Marchands',
     },

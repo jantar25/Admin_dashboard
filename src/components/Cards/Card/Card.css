@@ -36,20 +36,6 @@
     border-radius: 50%;
 }
 
-.deposit {
-    color: #004B77;
-    background: #cee2ee;
-}
-
-.interest {
-    color: rgb(4, 68, 4);
-    background: rgb(196, 230, 196);
-}
-
-.clients {
-    color: rgb(204, 134, 5);
-    background: rgb(231, 218, 194);
-}
 
 .Card-container-middle {
     display: flex;
