@@ -10,21 +10,26 @@ import Clients from './pages/Clients';
 import Sellers from './pages/Sellers';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Account from './pages/Account/Account';
-import Login from './pages/Login'
+import Login from './pages/Login/Login'
 import { useState } from 'react';
 
 function App () {
   const [toggleSidebar,setToggleSidebar] = useState(false)
-  const admin = true
+  const [admin,setAdmin] = useState(false)
 
   const handleSidebar = () => {
     setToggleSidebar(!toggleSidebar)
   }
+
+  const allowAdmin = () => {
+    setAdmin(!admin)
+  }
+
   return(
     <Router>
       <Routes>
         {!admin ? 
-        <Route exact path="/" element={<Login/>} /> :
+        <Route exact path="/" element={<Login allowAdmin={allowAdmin} />} /> :
         <Route exact path="*" element= {
           <div className='app'>
             <DashboardHeader handleSidebar={handleSidebar} isOpen={toggleSidebar}/>

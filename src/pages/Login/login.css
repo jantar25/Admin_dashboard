@@ -54,8 +54,6 @@ form img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
-    margin-top: 10px;
     background: #fff;
     border: 1px solid #2075bc;
 }
@@ -72,6 +70,7 @@ form img {
 }
 
 .input-field .icon-container {
+    margin: 0 auto;
     color: #2075bc;
     font-size: 1.5rem;
 }
@@ -99,6 +98,9 @@ button:hover {
     cursor: pointer;
 }
 
+.notification {
+    color: red;
+}
 
 @media only screen and (min-width: 768px) {
     .input-field input {

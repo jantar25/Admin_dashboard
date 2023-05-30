@@ -3,12 +3,13 @@ import { AiFillEyeInvisible,AiFillEye,AiFillMail } from 'react-icons/ai'
 import { FaUserAlt } from 'react-icons/fa'
 
 import './login.css'
-import logo from '../assets/images/logo.png'
+import logo from '../../assets/images/logo.png'
 
-const Login = () => {
+const Login = ({allowAdmin}) => {
   const [passwordType, setPasswordType] = useState("password");
   const [userCode,setUserCode] = useState('')
   const [password,setPassword] = useState('')
+  const [notification,setNotification] = useState(null)
 
   const togglePassword = () => {
     passwordType==="password"?
@@ -18,9 +19,17 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    console.log({userCode,password})
-    setUserCode('')
-    setPassword('')
+    if (userCode === 'Admin' && password === '123') {
+      console.log({userCode,password})
+      allowAdmin()
+      setUserCode('')
+      setPassword('')
+    } else {
+      setNotification('Username and/or password invalid')
+      setTimeout(() => {
+        setNotification(null)
+      }, 5000)
+    }
   }
 
   return (
@@ -58,6 +67,7 @@ const Login = () => {
                 </div>
               </div>
             </div>
+            {notification && <p className='notification'>**{notification}**</p>}
             <button className='btn' type='Submit'>Connectez-vous</button>
           </form>
       </div>

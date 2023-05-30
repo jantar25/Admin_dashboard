@@ -14,7 +14,7 @@ const Card = ({card}) => {
           <BsThreeDots />
         </div>
         <div className='Card-container-middle'>
-          <div className='deposit' style={{background}}>
+          <div className='icon-container' style={{background}}>
             <Icon fill={color} />
           </div> 
           <div className='card-amount-container'>

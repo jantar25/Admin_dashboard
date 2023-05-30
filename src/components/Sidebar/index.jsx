@@ -19,38 +19,17 @@ function SideBar ({ menu,isOpen,handleSidebar }) {
         });
     }, [menu,location.pathname])
 
-    const __navigate = (id) => {
+    const navigate = (id) => {
         setActive(id);
         handleSidebar()
     }
 
     return(
         <nav className={`sidebar ${isOpen? 'active' : ''}`}>
-                                                {/* <td>
-                                        <div>
-                                            {client.status === 'Paid' ?
-                                                <img
-                                                    src={DoneIcon}
-                                                    alt='paid-icon'
-                                                    className='dashboard-content-icon' />
-                                            : client.status === 'Canceled' ?
-                                                <img
-                                                    src={CancelIcon}
-                                                    alt='canceled-icon'
-                                                    className='dashboard-content-icon' />
-                                            : client.status === 'Refunded' ?
-                                                <img
-                                                    src={RefundedIcon}
-                                                    alt='refunded-icon'
-                                                    className='dashboard-content-icon' />
-                                            : null}
-                                            <span>{client.status}</span>
-                                        </div>
-                                    </td> */}
             <div className='sidebar-container'>
                     <div className='sidebar-items'>
                         {menu.map((item, index) => (
-                            <div key={index} onClick={() => __navigate(item.id)}>
+                            <div key={index} onClick={() => navigate(item.id)}>
                                 <SideBarItem
                                     active={item.id === active}
                                     item={item} />

@@ -1,13 +1,33 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 import './index.css'
 
 const ClientForm = ({toggleForm}) => {
+    const [inputs,setInputs] = useState({
+        companyName:'',
+        companyAddress:'',
+        taxNumber:'',
+        operation:'',
+        type:'',
+        companyPhone:'',
+        sellerName:'',
+        sellerEmail:'',
+        indentityType:'',
+        idNumber:'',
+        sellerPhone:''
+    })
+
+    const handleChange = (e) => {
+        setInputs({...inputs,[e.target.name]: e.target.value})
+    }
     
     const hanldeSubmit = (e) => {
         e.preventDefault()
-        console.log('Form submitted...')
+        console.log(inputs)
+        toggleForm()
     }
+
+
   return (
     <div className='form-container'>
         <form onSubmit={hanldeSubmit}>
@@ -17,60 +37,62 @@ const ClientForm = ({toggleForm}) => {
                     <h5>INFORMATION SUR L'ENTREPRISE</h5>
                     <div className='input-container'>
                         <label htmlFor='name'>Nom:</label>
-                        <input name='name' type='text' placeholder='Amazon ltd' />
+                        <input name='companyName' type='text' placeholder='Amazon ltd' onChange={handleChange}/>
                     </div>
                     <div className='input-container'>
                         <label htmlFor='surname'>Address:</label>
-                        <input name='surname' type='text' placeholder='Gisozi/Kigali' />
+                        <input name='companyAddress' type='text' placeholder='Gisozi/Kigali' onChange={handleChange}/>
                     </div>
                     <div className='input-container'>
                         <label htmlFor='address'>Numero d'impot:</label>
-                        <input name='address' type='text' placeholder="TNR09863900" />
+                        <input name='taxNumber' type='text' placeholder="TNR09863900" onChange={handleChange}/>
                     </div>
                     <div className='input-container'>
                         <label htmlFor='address'>Secteur des operations:</label>
-                        <input name='address' type='text' placeholder='Minerais' />
+                        <input name='operation' type='text' placeholder='Minerais' onChange={handleChange}/>
                     </div>
                     <div className='input-container'>
                         <label htmlFor='type'>Type:</label>
-                        <select name='type' placeholder='Type'>
-                            <option>Persone 1</option>
-                            <option>Persone 2</option>
-                            <option>Persone 3</option>
-                            <option>Persone 4</option>
+                        <select name='type' onChange={handleChange}>
+                            <option value=''>--Select type--</option>
+                            <option value='1'>Persone 1</option>
+                            <option value='2'>Persone 2</option>
+                            <option value='3'>Persone 3</option>
+                            <option value='4'>Persone 4</option>
                         </select>
                     </div>
                     <div className='input-container'>
                         <label htmlFor='address'>Numero telephone:</label>
-                        <input name='address' type='text' placeholder='0786523190' />
+                        <input name='companyPhone' type='text' placeholder='0786523190' onChange={handleChange}/>
                     </div>
                 </div>
                 <div className='form-right'>
                     <h5>INFORMATION DU REPRESENTANT</h5>
                     <div className='input-container'>
                         <label htmlFor='number'>Noms:</label>
-                        <input name='number' type='text' placeholder="Jonhy Abasik" />
+                        <input name='sellerName' type='text' placeholder="Jonhy Abasik" onChange={handleChange}/>
                     </div>
                     <div className='input-container'>
                         <label htmlFor='number'>Email:</label>
-                        <input name='number' type='text' placeholder="john@gmail.com" />
+                        <input name='sellerEmail' type='text' placeholder="john@gmail.com" onChange={handleChange}/>
                     </div>
                     <div className='input-container'>
                         <label htmlFor='type'>Type d'identite:</label>
-                        <select name='type' placeholder='Type'>
-                            <option>Passeport</option>
-                            <option>Permis de conduire</option>
-                            <option>Carte d'identite</option>
-                            <option>Autres</option>
+                        <select name='indentityType' onChange={handleChange}>
+                            <option value=''>--selectione ton type d'ID--</option>
+                            <option value='Passeport'>Passeport</option>
+                            <option value='Permis de conduire'>Permis de conduire</option>
+                            <option value="Carte d'identite">Carte d'identite</option>
+                            <option value='Autres'>Autres</option>
                         </select>
                     </div>
                     <div className='input-container'>
                         <label htmlFor='number'>Numero d'identite:</label>
-                        <input name='number' type='text' placeholder="AV32190/203" />
+                        <input name='idNumber' type='text' placeholder="AV32190/203" onChange={handleChange}/>
                     </div>
                     <div className='input-container'>
                         <label htmlFor='number'>Numero de telephone:</label>
-                        <input name='number' type='text' placeholder="0786500090" />
+                        <input name='sellerPhone' type='text' placeholder="0786500090" onChange={handleChange}/>
                     </div>
                 </div>
             </div>
