@@ -1,0 +1,33 @@
+.seller-container {
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    left: 5%;
+    right: 5%;
+    border-radius: 5px;
+}
+
+.seller-info {
+    position: relative;
+    padding: 2rem; 
+}
+
+.btn-close {
+    position: absolute;
+    top:10px;
+    right: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .seller-container {
+        left: 15%;
+        right: 15%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .seller-container {
+        left: 30%;
+        right: 30%;
+    }
+}

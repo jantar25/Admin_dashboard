@@ -7,11 +7,25 @@ import './styles.css';
 import Cards from '../../components/Cards/Cards';
 import {cardItemsClients} from '../../constants/cards';
 import ClientForm from '../../components/ClientForm/ClientForm';
+import Seller from '../../components/Seller/Seller';
 
 function Orders () {
     const [search, setSearch] = useState('');
+    const [singleSeller, setSingleSeller] = useState();
     const [toggleForm,setToggleForm] = useState(false);
+    const [toggleSeller,setToggleSeller] = useState(false)
 
+    const closeSeller = () => {
+        setToggleSeller(!toggleSeller) 
+    }
+
+    const handleToggleForm = () => {
+        setToggleForm(!toggleForm)
+    }
+
+    const getSeller = (seller) => {
+        setSingleSeller(seller)
+    }
 
     const handleSearch = () => {
         if(search === undefined) {
@@ -25,11 +39,7 @@ function Orders () {
 
     const sellers = handleSearch()
 
-    const handleToggleForm = () => {
-        setToggleForm(!toggleForm)
-    }
-
-    if(toggleForm){
+    if(toggleForm || toggleSeller){
         document.body.classList.add('overflow-hidden')
       } else  {
           document.body.classList.remove('overflow-hidden')
@@ -46,6 +56,13 @@ function Orders () {
                         </div>
                     </div>
                 </div>
+                }
+                {toggleSeller && 
+                    <div className='modal-container'>
+                        <div className='modal-cover'>
+                            <Seller seller={singleSeller} closeSeller={closeSeller} />
+                        </div>
+                    </div>
                 }
             <div className='dashboard-content-container'>
                 <div className='dashboard-content-header'>
@@ -71,6 +88,8 @@ function Orders () {
                         seller.type,
                         seller.status
                     ]))}
+                    getSeller={getSeller}
+                    closeSeller={closeSeller}
                     />
             </div>
         </div>

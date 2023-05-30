@@ -68,7 +68,7 @@ const Login = ({allowAdmin}) => {
               </div>
             </div>
             {notification && <p className='notification'>**{notification}**</p>}
-            <button className='btn' type='Submit'>Connectez-vous</button>
+            <button className='login-btn' type='Submit'>Connectez-vous</button>
           </form>
       </div>
       <footer>Copyright © 2023 Bakanna Technology SARL</footer>

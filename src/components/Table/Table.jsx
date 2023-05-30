@@ -4,8 +4,13 @@ import DoneIcon from '../../assets/icons/done.svg';
 import CancelIcon from '../../assets/icons/cancel.svg';
 import './table.css'
 
-const Table = ({head,body}) => {
-    
+const Table = ({head,body,getSeller,closeSeller}) => {
+
+    const handleToggleSeller = (seller) => {
+        getSeller(seller)
+        closeSeller()
+    }
+
   return (
     <div className='table-container'>
         <table>
@@ -34,8 +39,10 @@ const Table = ({head,body}) => {
                         : <span>{item}</span>}
                         </td>
                     ))}
-                    {head.includes("PLUS D'INFO") && <td><button>Info</button></td> }           
-                </tr>))}
+                    {head.includes("PLUS D'INFO") && 
+                    <td><button onClick={() => handleToggleSeller(seller)}>Plus d'info</button></td> }          
+                </tr>
+                ))}
             </tbody>
             : null}
         </table>

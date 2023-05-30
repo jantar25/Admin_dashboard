@@ -88,15 +88,9 @@ button {
     border: none;
     border-radius: 5px;
     transition: .5s ease-in-out;
-}
-
-button:hover {
-    padding: 10px 25px;
-}
-
-.btn {
     cursor: pointer;
 }
+
 
 .notification {
     color: red;

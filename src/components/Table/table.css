@@ -58,24 +58,43 @@ td span {
         display: none;
     }
     tr {
-        display: block;
+        width: 60vw;
+        display:block;
         margin-bottom: .625em;
+        border: 1px solid #004B77;
+        border-radius: 5px;
       }
       
     td {
-        border: 0.05rem solid rgb(117, 168, 240);
+        flex: 1;
         display: flex;
         align-items: center;
         justify-content: space-between;
         font-size: .8em;
-        text-align: right;
+        border-bottom: 0.02rem solid rgb(164, 198, 245);
       }
-      
+
+    td:last-child {
+        border-bottom: none;
+      }
+
+    td span {
+        color: #004B77;
+    }
+
     td::before {
         content: attr(data-label);
         float: left;
         font-weight: bold;
         text-transform: uppercase;
         margin-right: 1rem;
+        font-size: 0.65rem;
+        color: gray;
       }
+}
+
+@media screen and (max-width: 668px) {
+    tr {
+        width: 70vw;
+    }
 }
