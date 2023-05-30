@@ -58,7 +58,7 @@ td span {
   margin-right: 10px;
 }
 
-@media screen and (max-width: 1110px) {
+@media screen and (max-width: 810px) {
   thead {
     display: none;
   }
