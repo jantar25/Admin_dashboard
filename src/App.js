@@ -8,6 +8,7 @@ import DashboardHeader from './components/DashboardHeader';
 import './App.css';
 import Clients from './pages/Clients';
 import Sellers from './pages/Sellers';
+import Users from './pages/Users'
 import Dashboard from './pages/Dashboard/Dashboard';
 import Account from './pages/Account/Account';
 import Login from './pages/Login/Login'
@@ -41,6 +42,7 @@ function App () {
                     <Route exact path="/clients" element={< Clients/>} />
                     <Route exact path="/sellers" element={<Sellers />} />
                     <Route exact path="/profile" element={<Account />} />
+                    <Route exact path="/users" element={<Users />} />
                   </Routes>
               </div>
             </div>

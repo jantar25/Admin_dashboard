@@ -25,6 +25,12 @@ const sidebar_menu = [
     {
         id: 4,
         icon: UserIcon,
+        path: '/users',
+        title: 'Utilisateurs',
+    },
+    {
+        id: 5,
+        icon: UserIcon,
         path: '/profile',
         title: 'Mon compte',
     }
