@@ -2,6 +2,7 @@ import DashboardIcon from '../assets/icons/dashboard.svg';
 import SellerIcon from '../assets/icons/seller.svg';
 import ClientsIcon from '../assets/icons/clients.svg';
 import UserIcon from '../assets/icons/user.svg';
+import UsersIcon from '../assets/icons/users.svg';
 
 const sidebar_menu = [
     {
@@ -24,7 +25,7 @@ const sidebar_menu = [
     },
     {
         id: 4,
-        icon: UserIcon,
+        icon: UsersIcon,
         path: '/users',
         title: 'Utilisateurs',
     },
