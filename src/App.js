@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import SideBar from './components/Sidebar';
 import sidebar_menu from './constants/sidebar-menu';
@@ -29,8 +29,6 @@ function App () {
   return(
     <Router>
       <Routes>
-        {!admin ? 
-        <Route exact path="/" element={<Login allowAdmin={allowAdmin} />} /> :
         <Route exact path="*" element= {
           <div className='app'>
             <DashboardHeader handleSidebar={handleSidebar} isOpen={toggleSidebar}/>
@@ -38,17 +36,17 @@ function App () {
               <SideBar menu={sidebar_menu} isOpen={toggleSidebar} handleSidebar={handleSidebar}/>
               <div className='dashboard-body'>
                   <Routes>
-                    <Route path="/" element={<Dashboard />} />
-                    <Route exact path="/clients" element={< Clients/>} />
-                    <Route exact path="/sellers" element={<Sellers />} />
-                    <Route exact path="/profile" element={<Account />} />
-                    <Route exact path="/users" element={<Users />} />
+                    <Route path="/" element={admin? <Dashboard/> : <Navigate to="/login" />} />
+                    <Route exact path="/clients" element={admin? <Clients/> : <Navigate to="/login" />} />
+                    <Route exact path="/sellers" element={admin? <Sellers/> : <Navigate to="/login" />} />
+                    <Route exact path="/profile" element={admin? <Account/> : <Navigate to="/login" />} />
+                    <Route exact path="/users" element={admin? <Users/> : <Navigate to="/login" />} />
                   </Routes>
               </div>
             </div>
           </div>
-        } />
-        }
+        } /> 
+        <Route exact path="/login" element={!admin? <Login allowAdmin={allowAdmin} /> : <Navigate to="/" />} /> 
       </Routes>
     </Router>
   )

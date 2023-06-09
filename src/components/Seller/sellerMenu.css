@@ -1,23 +1,25 @@
 .seller-container {
     background: #fff;
     position: absolute;
-    top: 60px;
+    top: 30%;
     left: 5%;
     right: 5%;
     border-radius: 5px;
 }
 
-.seller-info {
-    position: relative;
-    padding: 2rem; 
+.btn {
+    margin: 0;
+    padding: 2rem;
+    text-align: center;
+    font-weight: 800;
+    border-bottom: 1px solid #015C92;
 }
 
-.btn-close {
-    position: absolute;
-    background: red;
-    top:10px;
-    right: 10px;
+.btn:hover {
+    color: #fff;
+    background: #015C92;
 }
+
 
 @media screen and (min-width: 768px) {
     .seller-container {

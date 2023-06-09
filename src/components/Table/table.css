@@ -49,6 +49,11 @@ td span {
   font-weight: 700;
 }
 
+.menu-list {
+  position: relative;
+  cursor: pointer;
+}
+
 .status-container {
   display: flex;
   align-items: center;

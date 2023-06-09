@@ -7,7 +7,7 @@ import './styles.css';
 import Cards from '../../components/Cards/Cards';
 import {cardItemsClients} from '../../constants/cards';
 import ClientForm from '../../components/ClientForm/ClientForm';
-import Seller from '../../components/Seller/Seller';
+import SellerMenu from '../../components/Seller/SellerMenu';
 
 function Orders () {
     const [search, setSearch] = useState('');
@@ -60,7 +60,7 @@ function Orders () {
                 {toggleSeller && 
                     <div className='modal-container'>
                         <div className='modal-cover'>
-                            <Seller seller={singleSeller} closeSeller={closeSeller} />
+                            <SellerMenu seller={singleSeller} closeSeller={closeSeller} />
                         </div>
                     </div>
                 }
@@ -80,7 +80,7 @@ function Orders () {
                     </div>
                 </div>
                 <Table 
-                    head={['ID','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"PLUS D'INFO"]}
+                    head={['ID','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"MENU"]}
                     body={sellers.map(seller=>([
                         seller.id,
                         seller.compagny,

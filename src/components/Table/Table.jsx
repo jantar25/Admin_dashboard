@@ -2,6 +2,7 @@ import React from 'react'
 
 import DoneIcon from '../../assets/icons/done.svg';
 import CancelIcon from '../../assets/icons/cancel.svg';
+import Menu from '../../assets/icons/list.svg'
 import './table.css'
 
 const Table = ({head,body,getSeller,closeSeller}) => {
@@ -39,8 +40,14 @@ const Table = ({head,body,getSeller,closeSeller}) => {
                         : <span>{item}</span>}
                         </td>
                     ))}
-                    {head.includes("PLUS D'INFO") && 
-                    <td><button onClick={() => handleToggleSeller(seller)}>Plus d'info</button></td> }          
+                    {head.includes("MENU") && 
+                    <td>
+                        <img
+                            src={Menu}
+                            alt='Menu-icon' 
+                            className='menu-list' 
+                            onClick={() => handleToggleSeller(seller)}/>
+                    </td> }
                 </tr>
                 ))}
             </tbody>
