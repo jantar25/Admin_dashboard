@@ -1,6 +1,6 @@
 const all_sellers = [
     {
-        id: "#1236",
+        id: "1236",
         compagny: "Alaska ltd",
         email: "michael.lawson@reqres.in",
         represent: "Michael Lawson",
@@ -8,7 +8,7 @@ const all_sellers = [
         status: 'active',
     },
     {
-        id: "#1235",
+        id: "1235",
         compagny: "Brubus ltd",
         email: "lindsay.ferguson@reqres.in",
         represent: "Lindsay Ferguson",
@@ -16,7 +16,7 @@ const all_sellers = [
         status: 'active',
     },
     {
-        id: "#1234",
+        id: "1234",
         compagny: "DATIVE ltd",
         email: "tobias.funke@reqres.in",
         represent: "Tobias Funke",
@@ -24,7 +24,7 @@ const all_sellers = [
         status: 'inactive',
     },
     {
-        id: "#1233",
+        id: "1233",
         compagny: "Ravir ltd",
         email: "byron.fields@reqres.in",
         represent: "Byron Fields",
@@ -32,7 +32,7 @@ const all_sellers = [
         status: 'active',
     },
     {
-        id: "#1232",
+        id: "1232",
         compagny: "OSSASUNA ltd",
         email: "george.edwards@reqres.in",
         represent: "George Edwards",
@@ -40,7 +40,7 @@ const all_sellers = [
         status: 'inactive',
     },
     {
-        id: "#1231",
+        id: "1231",
         compagny: "Teremana ltd",
         email: "rachel.howell@reqres.in",
         represent: "Rachel Howell",

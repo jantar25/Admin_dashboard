@@ -7,7 +7,7 @@ import './styles.css';
 import Cards from '../../components/Cards/Cards';
 import {cardItemsClients} from '../../constants/cards';
 import ClientForm from '../../components/ClientForm/ClientForm';
-import SellerMenu from '../../components/Seller/SellerMenu';
+import SellerMenu from '../../components/SellerMenu/SellerMenu';
 
 function Orders () {
     const [search, setSearch] = useState('');

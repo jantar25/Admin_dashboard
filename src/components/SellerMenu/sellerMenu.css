@@ -7,7 +7,7 @@
     border-radius: 10px;
 }
 
-.btn {
+.clickable {
     margin: 0;
     padding: 2rem;
     text-align: center;
@@ -16,19 +16,19 @@
     cursor: pointer;
 }
 
-.btn:first-child {
+.clickable:first-child {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom: 1px solid #015C92;
 }
 
-.btn:nth-child(3) {
+.clickable:nth-child(3) {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top: 1px solid #015C92;
 }
 
-.btn:hover {
+.clickable:hover {
     color: #fff;
     background: #015C92;
 }
