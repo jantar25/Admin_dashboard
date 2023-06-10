@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import SideBar from './components/Sidebar';
@@ -12,7 +12,8 @@ import Users from './pages/Users'
 import Dashboard from './pages/Dashboard/Dashboard';
 import Account from './pages/Account/Account';
 import Login from './pages/Login/Login'
-import { useState } from 'react';
+import Seller from './pages/Seller/Seller';
+
 
 function App () {
   const [toggleSidebar,setToggleSidebar] = useState(false)
@@ -39,6 +40,7 @@ function App () {
                     <Route path="/" element={admin? <Dashboard/> : <Navigate to="/login" />} />
                     <Route exact path="/clients" element={admin? <Clients/> : <Navigate to="/login" />} />
                     <Route exact path="/sellers" element={admin? <Sellers/> : <Navigate to="/login" />} />
+                    <Route exact path="/seller/:id" element={admin? <Seller/> : <Navigate to="/login" />} />
                     <Route exact path="/profile" element={admin? <Account/> : <Navigate to="/login" />} />
                     <Route exact path="/users" element={admin? <Users/> : <Navigate to="/login" />} />
                   </Routes>

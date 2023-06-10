@@ -46,7 +46,7 @@ const Table = ({head,body,getSeller,closeSeller}) => {
                             src={Menu}
                             alt='Menu-icon' 
                             className='menu-list' 
-                            onClick={() => handleToggleSeller(seller)}/>
+                            onClick={() => handleToggleSeller(seller[0])}/>
                     </td> }
                 </tr>
                 ))}
