@@ -1,0 +1,25 @@
+.wallet-container {
+    background: #fff;
+    color: blue;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    right: 5%;
+    border-radius: 10px;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .wallet-container {
+        left: 15%;
+        right: 15%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .wallet-container {
+        left: 30%;
+        right: 30%;
+    }
+}

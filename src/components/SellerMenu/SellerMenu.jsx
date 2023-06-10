@@ -4,14 +4,17 @@ import useClickOutside from '../../Hooks/useClickOutside';
 
 import './sellerMenu.css'
 
-const SellerMenu = ({seller,closeSeller}) => {
+const SellerMenu = ({seller,closeSeller,closeWallet,closeServiceFees}) => {
   const dropDownRef = useClickOutside(closeSeller)
+
   const handleServiceCost = () => {
     closeSeller()
+    closeServiceFees()
   }
 
   const handleWallet = () => {
     closeSeller()
+    closeWallet()
   }
 
   return (

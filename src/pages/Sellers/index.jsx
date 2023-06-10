@@ -8,15 +8,27 @@ import Cards from '../../components/Cards/Cards';
 import {cardItemsClients} from '../../constants/cards';
 import ClientForm from '../../components/ClientForm/ClientForm';
 import SellerMenu from '../../components/SellerMenu/SellerMenu';
+import Wallet from '../../components/Wallet/Wallet';
+import ServiceFees from '../../components/ServiceFees/ServiceFees';
 
 function Orders () {
     const [search, setSearch] = useState('');
     const [singleSeller, setSingleSeller] = useState();
     const [toggleForm,setToggleForm] = useState(false);
     const [toggleSeller,setToggleSeller] = useState(false)
+    const [toggleWallet,setToggleWallet] = useState(false);
+    const [toggleServiceFees,setToggleServiceFees] = useState(false)
 
-    const closeSeller = () => {
+    const handleToggleSellerMenu = () => {
         setToggleSeller(!toggleSeller) 
+    }
+
+    const handleToggleWallet = () => {
+        setToggleWallet(!toggleWallet)
+    }
+
+    const handleToggleServiceFees = () => {
+        setToggleServiceFees(!toggleServiceFees)
     }
 
     const handleToggleForm = () => {
@@ -60,7 +72,26 @@ function Orders () {
                 {toggleSeller && 
                     <div className='modal-container'>
                         <div className='modal-cover'>
-                            <SellerMenu seller={singleSeller} closeSeller={closeSeller} />
+                            <SellerMenu 
+                                seller={singleSeller} 
+                                closeSeller={handleToggleSellerMenu} 
+                                closeWallet={handleToggleWallet}
+                                closeServiceFees={handleToggleServiceFees}
+                                />
+                        </div>
+                    </div>
+                }
+                {toggleWallet && 
+                    <div className='modal-container'>
+                        <div className='modal-cover'>
+                            <Wallet seller={singleSeller} closeWallet={handleToggleWallet} />
+                        </div>
+                    </div>
+                }
+                {toggleServiceFees && 
+                    <div className='modal-container'>
+                        <div className='modal-cover'>
+                            <ServiceFees seller={singleSeller} closeServiceFees={handleToggleServiceFees} />
                         </div>
                     </div>
                 }
@@ -89,7 +120,7 @@ function Orders () {
                         seller.status
                     ]))}
                     getSeller={getSeller}
-                    closeSeller={closeSeller}
+                    closeSeller={handleToggleSellerMenu}
                     />
             </div>
         </div>

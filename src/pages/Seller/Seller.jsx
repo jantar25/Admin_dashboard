@@ -2,8 +2,6 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 
 import all_sellers from '../../constants/sellers'
-import DoneIcon from '../../assets/icons/done.svg';
-import CancelIcon from '../../assets/icons/cancel.svg';
 import './seller.css'
 
 const Seller = () => {
@@ -11,7 +9,6 @@ const Seller = () => {
   const currentSellerId = location.pathname.split('/')[2];
   const currentSeller = all_sellers.find(seller => seller.id === currentSellerId)
 
-  console.log(currentSeller)
   return (
     <div className='container-seller'>
       <div className='seller-type-container'>
