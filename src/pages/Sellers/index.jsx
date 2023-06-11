@@ -51,7 +51,7 @@ function Orders () {
 
     const sellers = handleSearch()
 
-    if(toggleForm || toggleSeller){
+    if(toggleForm || toggleSeller || toggleWallet || toggleServiceFees){
         document.body.classList.add('overflow-hidden')
       } else  {
           document.body.classList.remove('overflow-hidden')
