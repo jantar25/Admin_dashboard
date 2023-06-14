@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 
 import all_Sellers from '../../constants/sellers';
 import Table from '../../components/Table/Table';
+import useFetch from '../../Hooks/useFetch';
+import { baseURL } from '../../constants/baseURL';
 
 import './styles.css';
 import Cards from '../../components/Cards/Cards';
@@ -18,6 +20,9 @@ function Orders () {
     const [toggleSeller,setToggleSeller] = useState(false)
     const [toggleWallet,setToggleWallet] = useState(false);
     const [toggleServiceFees,setToggleServiceFees] = useState(false)
+
+    const {isLoading,apiData,serverError} = useFetch(`${baseURL}/merchant/0/50`)
+    console.log({isLoading,apiData,serverError})
 
     const handleToggleSellerMenu = () => {
         setToggleSeller(!toggleSeller) 

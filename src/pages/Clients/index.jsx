@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 
 import all_clients from '../../constants/clients';
+import useFetch from '../../Hooks/useFetch';
+import { baseURL } from '../../constants/baseURL';
 
 import './styles.css';
 import { cardItemsClients } from '../../constants/cards'
@@ -9,6 +11,8 @@ import Table from '../../components/Table/Table';
 
 function Clients () {
     const [search, setSearch] = useState();
+    const {isLoading,apiData,serverError} = useFetch(`${baseURL}/customer/0/50`)
+    console.log({isLoading,apiData,serverError})
 
     const handleSearch = () => {
         if(search === undefined) {
