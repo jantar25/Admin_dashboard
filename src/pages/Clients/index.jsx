@@ -39,17 +39,21 @@ function Clients () {
                             onChange={(e)=>setSearch(e.target.value)} />
                     </div>
                 </div>
+                {isLoading && <div className='loading'>Telechargement...</div>}
+                {serverError && <div className='error'>{serverError.message}</div>}
+                {apiData && 
                 <Table 
                     head={['ID','NOM','POST-NOM','TELEPHONE','OPERATEUR',"DATE D'ADHESION"]}
-                    body={clients.map(client=>([
-                        client.id,
-                        client.first_name,
-                        client.last_name,
+                    body={apiData.map(client=>([
+                        client.customerUid,
+                        client.firstname,
+                        client.lastname,
                         client.telephone,
                         client.operator,
-                        client.date
+                        client.joinedDate
                     ]))}
                     />
+                }
             </div>
         </div>
     )
