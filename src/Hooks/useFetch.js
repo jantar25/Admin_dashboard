@@ -16,8 +16,12 @@ const useFetch = (url) => {
                 setApiData(data)
                 setIsLoading(false)
             } catch (error) {
-                setServerError(error)
                 setIsLoading(false)
+                setServerError(error.message)
+                setTimeout(() => {
+                    setServerError(null)
+                  }, 5000)
+                
             }
         }
         fetchData()
