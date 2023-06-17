@@ -48,9 +48,9 @@ function Clients () {
                             placeholder='Search..'
                             className='dashboard-content-input'
                             onChange={(e)=>setSearch(e.target.value)} />
-                        <button onClick={handleSearch}>
+                        <div className='search-icon' onClick={handleSearch}>
                             <img src={searchIcon} alt='search-icon' />
-                        </button>
+                        </div>
                     </div>
                 </div>
                 {(isLoading || isSearchLoading) && <div className='loading'>Telechargement...</div>}

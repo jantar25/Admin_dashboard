@@ -85,6 +85,15 @@
     color: rgb(194, 27, 27);
 }
 
+.search-icon {
+    background:#015C92 ;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 480px) {
     .dashboard-content-header {
         flex-direction: column;
