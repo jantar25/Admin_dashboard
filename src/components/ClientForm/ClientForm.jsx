@@ -1,8 +1,11 @@
 import React,{useState} from 'react'
+import axios from 'axios';
 
+import { baseURL } from '../../constants/baseURL';
 import './index.css'
 
 const ClientForm = ({toggleForm}) => {
+    const [error,setError] = useState(false)
     const [businessInputs,setBusinessInputs] = useState({
         merchantName: "",
         businessType: "",
@@ -29,9 +32,20 @@ const ClientForm = ({toggleForm}) => {
     }
 
     
-    const hanldeSubmit = (e) => {
+    const hanldeSubmit = async (e) => {
         e.preventDefault()
-        console.log({...businessInputs,merchantRepresentativeDto:{...sellerInputs}})
+        try {
+            const response = await axios.post(`${baseURL}/merchant/`,
+            {...businessInputs,merchantRepresentativeDto:{...sellerInputs}})
+            const data = response?.data
+            console.log(data)
+        } catch (error) {
+            console.log(error)
+            setError(error.message)
+            setTimeout(() => {
+                setError(null)
+              }, 5000)
+        }
         toggleForm()
     }
 
@@ -103,6 +117,7 @@ const ClientForm = ({toggleForm}) => {
                     </div>
                 </div>
             </div>
+            {error && <div>{error}</div>}
             <div className='form-bottom'>
                 <input type='submit' value='Enregistrer' className='submit' />
                 <button onClick={toggleForm} className='cancel'>Fermer</button>

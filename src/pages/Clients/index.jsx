@@ -20,7 +20,7 @@ function Clients () {
     const handleSearch = async () => {
         setIsSearchLoading(true)
         try {
-            const response = await axios.get(`${baseURL}/customer/${search}`)
+            const response = await axios.get(`${baseURL}/customer/find/${search}`)
             const data = response?.data
             setSearchData(data)
             setIsSearchLoading(false)
@@ -59,7 +59,7 @@ function Clients () {
                     <Table 
                         head={['ID','NOM','POST-NOM','TELEPHONE','OPERATEUR',"DATE D'ADHESION"]}
                         body={apiData.map(client=>([
-                            client.customerUid.substring(10,0),
+                            client.customerUid,
                             client.firstname,
                             client.lastname,
                             client.telephone,
