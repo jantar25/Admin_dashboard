@@ -14,7 +14,7 @@ const marchantsSlice = createSlice({
         },
         getMarchantsSuccess:(state,action)=>{
             state.isFetching=false;
-            state.properties=action.payload;
+            state.marchants=action.payload;
             state.error=null;
         },
         getMarchantsFailure:(state,error)=>{

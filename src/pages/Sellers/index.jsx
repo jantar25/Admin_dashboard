@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import {useSelector} from 'react-redux';
+
 
 
 import Table from '../../components/Table/Table';
@@ -15,6 +17,7 @@ import Wallet from '../../components/Wallet/Wallet';
 import ServiceFees from '../../components/ServiceFees/ServiceFees';
 import searchIcon from '../../assets/icons/search.svg'
 
+
 function Orders () {
     const [search, setSearch] = useState('');
     const [singleSeller, setSingleSeller] = useState();
@@ -28,6 +31,8 @@ function Orders () {
 
     const {isLoading,apiData,serverError} = useFetch(`${baseURL}/merchant/0/50`)
 
+    const marchants = useSelector(state => state.marchants.marchants)
+    console.log(marchants)
     const handleToggleSellerMenu = () => {
         setToggleSeller(!toggleSeller) 
     }
@@ -73,6 +78,8 @@ function Orders () {
       } else  {
           document.body.classList.remove('overflow-hidden')
       }
+
+
 
     return(
         <div className='dashboard-content'>

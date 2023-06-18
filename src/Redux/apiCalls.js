@@ -3,11 +3,10 @@ import {getMarchantsStart,getMarchantsSuccess,getMarchantsFailure} from './march
 
 
 // GET ALL MERCHANTS
-export const getProperties = async (dispatch) =>{
+export const getMarchants = async (dispatch) =>{
     dispatch(getMarchantsStart());
-
     try {
-        const res = await publicRequest.get("/property");
+        const res = await publicRequest.get("/merchant/0/50");
         dispatch(getMarchantsSuccess(res.data));
     } catch (error) {
         dispatch(getMarchantsFailure(error.response.data.message));
