@@ -12,8 +12,8 @@ import {
   } from 'redux-persist'
 
 
-import marchantsRedux from "./landLordRedux";
-import clientsRedux from "./propertiesRedux";
+import marchantsRedux from "./marchantsRedux";
+import clientsRedux from "./clientsRedux";
 
   const persistConfig = {
     key: 'root',
