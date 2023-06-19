@@ -1,11 +1,9 @@
 import React, {useState,useEffect} from 'react';
-import axios from 'axios';
 import {useSelector} from 'react-redux';
 import { useDispatch } from 'react-redux'
 
-import { getMarchants } from '../../Redux/apiCalls';
+import { getMarchants,searchMarchants } from '../../Redux/apiCalls';
 import Table from '../../components/Table/Table';
-import { baseURL } from '../../constants/baseURL';
 
 import './styles.css';
 import Cards from '../../components/Cards/Cards';
@@ -25,11 +23,8 @@ function Orders () {
     const [toggleSeller,setToggleSeller] = useState(false)
     const [toggleWallet,setToggleWallet] = useState(false);
     const [toggleServiceFees,setToggleServiceFees] = useState(false)
-    const [searchedData, setSearchData] = useState();
-    const [isSearchLoading, setIsSearchLoading] = useState(false);
-    const [isSearchError, setIsSearchError] = useState(false);
 
-    const {marchants,isFetching,error} = useSelector(state => state.marchants)
+    const {marchants,isFetching} = useSelector(state => state.marchants)
 
     const handleToggleSellerMenu = () => {
         setToggleSeller(!toggleSeller) 
@@ -52,24 +47,12 @@ function Orders () {
     }
 
     const handleSearch = async () => {
-        setIsSearchLoading(true)
-        try {
-            const response = await axios.get(`${baseURL}/merchant/find/${search}`)
-            const data = response?.data
-            setSearchData(data)
-            setIsSearchLoading(false)
-            setSearch('')
-        } catch (error) {
-            console.log(error)
-            setIsSearchLoading(false)
-            setIsSearchError(error.message)
-            setTimeout(() => {
-                setIsSearchError(null)
-              }, 5000)
+        if (search) {
+            searchMarchants(dispatch,search)
+        } else {
+            getMarchants(dispatch)
         }
     };
-
-    const data = searchedData || marchants
 
     if(toggleForm || toggleSeller || toggleWallet || toggleServiceFees){
         document.body.classList.add('overflow-hidden')
@@ -79,7 +62,6 @@ function Orders () {
 
       useEffect(() => {
         getMarchants(dispatch)
-        console.log('useeffect')
       }, [dispatch])
 
     return(
@@ -138,12 +120,11 @@ function Orders () {
                         </div>
                     </div>
                 </div>
-                {(isFetching || isSearchLoading) && <div className='loading'>Telechargement...</div>}
-                {(error || isSearchError) && <div className='error'>{error || isSearchError}</div>}
-                {data && 
+                {(isFetching) && <div className='loading'>Telechargement...</div>}
+                {marchants.length > 0 ? 
                     <Table 
                         head={['ID','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"TAXE","MENU"]}
-                        body={data.map(seller=>([
+                        body={marchants.map(seller=>([
                             seller.merchantUid,
                             seller.merchantName,
                             seller.representativeName,
@@ -154,6 +135,7 @@ function Orders () {
                         getSeller={getSeller}
                         closeSeller={handleToggleSellerMenu}
                         />
+                        : <div className='not-found'>Pas de Marchants avec cette specification</div>
                     }
             </div>
         </div>

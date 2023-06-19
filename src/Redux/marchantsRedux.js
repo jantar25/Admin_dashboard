@@ -22,10 +22,24 @@ const marchantsSlice = createSlice({
             state.error=error;
         },
 
+        // Get all Marchants BY search
+        searchMarchantsStart:(state)=>{
+            state.isFetching=true;
+        },
+        searchMarchantsSuccess:(state,action)=>{
+            state.isFetching=false;
+            state.marchants=action.payload;
+            state.error=null;
+        },
+        searchMarchantsFailure:(state,error)=>{
+            state.isFetching=false;
+            state.error=error;
+        },
     }
 
 })
 
 
-export const {getMarchantsStart,getMarchantsSuccess,getMarchantsFailure} = marchantsSlice.actions;
+export const {getMarchantsStart,getMarchantsSuccess,getMarchantsFailure,
+    searchMarchantsStart,searchMarchantsSuccess,searchMarchantsFailure} = marchantsSlice.actions;
 export default marchantsSlice.reducer;

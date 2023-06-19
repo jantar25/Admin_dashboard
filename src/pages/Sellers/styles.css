@@ -101,6 +101,14 @@
     overflow: hidden;
 }
 
+.not-found {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: gray;
+    margin-top: 2rem;
+}
+
 @media screen and (max-width: 480px) {
     .dashboard-content-header {
         display: flex;
