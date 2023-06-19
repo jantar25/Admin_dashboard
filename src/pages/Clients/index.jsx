@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
-import axios from 'axios';
+import React, {useState,useEffect} from 'react';
+import {useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux'
 
-import useFetch from '../../Hooks/useFetch';
-import { baseURL } from '../../constants/baseURL';
-
+import { getClients,searchClients } from '../../Redux/apiCalls';
 import './styles.css';
 import { cardItemsClients } from '../../constants/cards'
 import Cards from '../../components/Cards/Cards'
@@ -11,31 +10,21 @@ import Table from '../../components/Table/Table'
 import searchIcon from '../../assets/icons/search.svg'
 
 function Clients () {
+    const dispatch = useDispatch()
     const [search, setSearch] = useState();
-    const [searchedData, setSearchData] = useState();
-    const [isSearchLoading, setIsSearchLoading] = useState(false);
-    const [isSearchError, setIsSearchError] = useState(false);
-    const {isLoading,apiData,serverError} = useFetch(`${baseURL}/customer/0/50`)
+    const {clients,isFetching} = useSelector(state => state.clients)
 
     const handleSearch = async () => {
-        setIsSearchLoading(true)
-        try {
-            const response = await axios.get(`${baseURL}/customer/find/${search}`)
-            const data = response?.data
-            setSearchData(data)
-            setIsSearchLoading(false)
-            setSearch('')
-        } catch (error) {
-            console.log(error)
-            setIsSearchLoading(false)
-            setIsSearchError(error.message)
-            setTimeout(() => {
-                setIsSearchError(null)
-              }, 5000)
+        if (search) {
+            searchClients(dispatch,search)
+        } else {
+            getClients(dispatch)
         }
     };
 
-    const data = searchedData || apiData
+    useEffect(() => {
+        getClients(dispatch)
+      }, [dispatch])
 
     return(
         <div className='dashboard-content'>
@@ -53,12 +42,11 @@ function Clients () {
                         </div>
                     </div>
                 </div>
-                {(isLoading || isSearchLoading) && <div className='loading'>Telechargement...</div>}
-                {(serverError || isSearchError) && <div className='error'>{serverError || isSearchError}</div>}
-                {data && 
+                {isFetching && <div className='loading'>Telechargement...</div>}
+                {clients.length > 0? 
                     <Table 
                         head={['ID','NOM','POST-NOM','TELEPHONE','OPERATEUR',"DATE D'ADHESION"]}
-                        body={apiData.map(client=>([
+                        body={clients.map(client=>([
                             client.customerUid,
                             client.firstname,
                             client.lastname,
@@ -67,6 +55,7 @@ function Clients () {
                             new Date(client.joinedDate).toJSON().slice(0, 16)
                         ]))}
                         />
+                        : <div className='not-found'>Pas de clients avec ce specification</div>
                     }
             </div>
         </div>

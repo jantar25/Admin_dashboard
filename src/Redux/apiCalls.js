@@ -35,7 +35,7 @@ export const searchMarchants = async (dispatch,search) =>{
 export const getClients = async (dispatch) =>{
     dispatch(getClientsStart());
     try {
-        const res = await publicRequest.get("/merchant/0/50");
+        const res = await publicRequest.get("/customer/0/50");
         dispatch(getClientsSuccess(res.data));
     } catch (error) {
         dispatch(getClientsFailure(error.payload));
@@ -47,7 +47,7 @@ export const getClients = async (dispatch) =>{
 export const searchClients = async (dispatch,search) =>{
     dispatch(searchClientsStart());
     try {
-        const res = await publicRequest.get(`/merchant/find/${search}/`);
+        const res = await publicRequest.get(`/customer/find/${search}/`);
         dispatch(searchClientsSuccess(res.data));
     } catch (error) {
         dispatch(searchClientsFailure(error.payload));
