@@ -1,15 +1,18 @@
 import React,{useState} from 'react'
+import { useDispatch,useSelector } from 'react-redux'
 import { AiFillEyeInvisible,AiFillEye,AiFillMail } from 'react-icons/ai'
 import { FaUserAlt } from 'react-icons/fa'
 
+import { userLogin } from '../../Redux/apiCalls'
 import './login.css'
 import logo from '../../assets/images/logo.png'
 
-const Login = ({allowAdmin}) => {
+const Login = () => {
+  const dispatch = useDispatch()
+  const {isFetching,error} = useSelector(state => state.currentUser)
   const [passwordType, setPasswordType] = useState("password");
   const [userCode,setUserCode] = useState('')
   const [password,setPassword] = useState('')
-  const [notification,setNotification] = useState(null)
 
   const togglePassword = () => {
     passwordType==="password"?
@@ -19,17 +22,9 @@ const Login = ({allowAdmin}) => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    if (userCode === 'Admin' && password === '123') {
-      console.log({userCode,password})
-      allowAdmin()
-      setUserCode('')
-      setPassword('')
-    } else {
-      setNotification('Username and/or password invalid')
-      setTimeout(() => {
-        setNotification(null)
-      }, 5000)
-    }
+    userLogin(dispatch,{userCode,password})
+    setUserCode('')
+    setPassword('')
   }
 
   return (
@@ -67,8 +62,8 @@ const Login = ({allowAdmin}) => {
                 </div>
               </div>
             </div>
-            {notification && <p className='notification'>**{notification}**</p>}
-            <button className='login-btn' type='Submit'>Connectez-vous</button>
+            {error && <p className='notification'>**{error.payload}**</p>}
+            <button className='login-btn' type='Submit'>{isFetching? 'Connection...' : 'Connectez-vous'}</button>
           </form>
       </div>
       <footer>Copyright © 2023 Bakanna Technology SARL</footer>

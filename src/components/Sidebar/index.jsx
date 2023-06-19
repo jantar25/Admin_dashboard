@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
+import { userLogout } from '../../Redux/apiCalls';
 import SideBarItem from './sidebar-item';
-
 import './styles.css';
 import LogoutIcon from '../../assets/icons/logout.svg';
 
 function SideBar ({ menu,isOpen,handleSidebar }) {
     const location = useLocation();
-
+    const dispatch = useDispatch()
+    const navigateUrl = useNavigate()
     const [active, setActive] = useState(1);
 
     useEffect(() => {
@@ -24,6 +26,11 @@ function SideBar ({ menu,isOpen,handleSidebar }) {
         handleSidebar()
     }
 
+    const logOut = () => {
+        userLogout(dispatch)
+        navigateUrl('/login')
+    }
+
     return(
         <nav className={`sidebar ${isOpen? 'active' : ''}`}>
             <div className='sidebar-container'>
@@ -37,7 +44,7 @@ function SideBar ({ menu,isOpen,handleSidebar }) {
                         ))}
                     </div>
 
-                    <div className='sidebar-footer'>
+                    <div className='sidebar-footer' onClick={logOut}>
                         <span className='sidebar-item-label'>Logout</span>
                         <img 
                             src={LogoutIcon}

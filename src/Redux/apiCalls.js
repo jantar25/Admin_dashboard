@@ -5,6 +5,8 @@ import {getMarchantsStart,getMarchantsSuccess,getMarchantsFailure,
 import {getClientsStart,getClientsSuccess,getClientsFailure,
     searchClientsStart,searchClientsSuccess,searchClientsFailure} from './clientsRedux'
 
+import {userLoginStart,userLoginSuccess,userLoginFailure,userLogoutSuccess} from './currentUserRedux'
+
 
 // GET ALL MERCHANTS
 export const getMarchants = async (dispatch) =>{
@@ -53,4 +55,29 @@ export const searchClients = async (dispatch,search) =>{
         dispatch(searchClientsFailure(error.payload));
         console.log(error);
     }
+}
+
+
+// LOGIN USER
+
+export const userLogin = async (dispatch,user) =>{
+    dispatch(userLoginStart());
+    if (user.userCode === 'Admin' && user.password === '123') {
+        dispatch(userLoginSuccess(user));
+        }
+    else {
+        dispatch(userLoginFailure('Username and/or password incorrecte'))
+    }
+    // try {
+    //     const res = (await publicRequest.post("/user/login",user));
+    //     dispatch(userLoginSuccess(user));
+    // } catch (error) {
+    //     console.log(error.response.data.message)
+    //     dispatch(userLoginFailure(error.response.data.message));
+    // }
+}
+
+
+export const userLogout = async (dispatch) =>{
+    dispatch(userLogoutSuccess());
 }

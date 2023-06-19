@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 import SideBar from './components/Sidebar';
 import sidebar_menu from './constants/sidebar-menu';
@@ -17,14 +18,10 @@ import Seller from './pages/Seller/Seller';
 
 function App () {
   const [toggleSidebar,setToggleSidebar] = useState(false)
-  const [admin,setAdmin] = useState(false)
+  const {currentUser} = useSelector(state => state.currentUser)
 
   const handleSidebar = () => {
     setToggleSidebar(!toggleSidebar)
-  }
-
-  const allowAdmin = () => {
-    setAdmin(!admin)
   }
 
   return(
@@ -37,18 +34,18 @@ function App () {
               <SideBar menu={sidebar_menu} isOpen={toggleSidebar} handleSidebar={handleSidebar}/>
               <div className='dashboard-body'>
                   <Routes>
-                    <Route path="/" element={admin? <Dashboard/> : <Navigate to="/login" />} />
-                    <Route exact path="/clients" element={admin? <Clients/> : <Navigate to="/login" />} />
-                    <Route exact path="/sellers" element={admin? <Sellers/> : <Navigate to="/login" />} />
-                    <Route exact path="/seller/:id" element={admin? <Seller/> : <Navigate to="/login" />} />
-                    <Route exact path="/profile" element={admin? <Account/> : <Navigate to="/login" />} />
-                    <Route exact path="/users" element={admin? <Users/> : <Navigate to="/login" />} />
+                    <Route path="/" element={currentUser? <Dashboard/> : <Navigate to="/login" />} />
+                    <Route exact path="/clients" element={currentUser? <Clients/> : <Navigate to="/login" />} />
+                    <Route exact path="/sellers" element={currentUser? <Sellers/> : <Navigate to="/login" />} />
+                    <Route exact path="/seller/:id" element={currentUser? <Seller/> : <Navigate to="/login" />} />
+                    <Route exact path="/profile" element={currentUser? <Account/> : <Navigate to="/login" />} />
+                    <Route exact path="/users" element={currentUser? <Users/> : <Navigate to="/login" />} />
                   </Routes>
               </div>
             </div>
           </div>
         } /> 
-        <Route exact path="/login" element={!admin? <Login allowAdmin={allowAdmin} /> : <Navigate to="/" />} /> 
+        <Route exact path="/login" element={!currentUser? <Login /> : <Navigate to="/" />} /> 
       </Routes>
     </Router>
   )
