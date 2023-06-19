@@ -13,3 +13,4 @@ export const getMarchants = async (dispatch) =>{
         console.log(error);
     }
 }
+

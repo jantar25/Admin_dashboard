@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 import {useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux'
 
-
-
+import { getMarchants } from '../../Redux/apiCalls';
 import Table from '../../components/Table/Table';
-import useFetch from '../../Hooks/useFetch';
 import { baseURL } from '../../constants/baseURL';
 
 import './styles.css';
@@ -19,6 +18,7 @@ import searchIcon from '../../assets/icons/search.svg'
 
 
 function Orders () {
+    const dispatch = useDispatch()
     const [search, setSearch] = useState('');
     const [singleSeller, setSingleSeller] = useState();
     const [toggleForm,setToggleForm] = useState(false);
@@ -29,10 +29,8 @@ function Orders () {
     const [isSearchLoading, setIsSearchLoading] = useState(false);
     const [isSearchError, setIsSearchError] = useState(false);
 
-    const {isLoading,apiData,serverError} = useFetch(`${baseURL}/merchant/0/50`)
+    const {marchants,isFetching,error} = useSelector(state => state.marchants)
 
-    const marchants = useSelector(state => state.marchants.marchants)
-    console.log(marchants)
     const handleToggleSellerMenu = () => {
         setToggleSeller(!toggleSeller) 
     }
@@ -71,7 +69,7 @@ function Orders () {
         }
     };
 
-    const data = searchedData || apiData
+    const data = searchedData || marchants
 
     if(toggleForm || toggleSeller || toggleWallet || toggleServiceFees){
         document.body.classList.add('overflow-hidden')
@@ -79,7 +77,10 @@ function Orders () {
           document.body.classList.remove('overflow-hidden')
       }
 
-
+      useEffect(() => {
+        getMarchants(dispatch)
+        console.log('useeffect')
+      }, [dispatch])
 
     return(
         <div className='dashboard-content'>
@@ -137,8 +138,8 @@ function Orders () {
                         </div>
                     </div>
                 </div>
-                {(isLoading || isSearchLoading) && <div className='loading'>Telechargement...</div>}
-                {(serverError || isSearchError) && <div className='error'>{serverError || isSearchError}</div>}
+                {(isFetching || isSearchLoading) && <div className='loading'>Telechargement...</div>}
+                {(error || isSearchError) && <div className='error'>{error || isSearchError}</div>}
                 {data && 
                     <Table 
                         head={['ID','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"TAXE","MENU"]}

@@ -1,10 +1,13 @@
 import React,{useState} from 'react'
 import axios from 'axios';
+import { useDispatch } from 'react-redux'
 
+import { getMarchants } from '../../Redux/apiCalls';
 import { baseURL } from '../../constants/baseURL';
 import './index.css'
 
 const ClientForm = ({toggleForm}) => {
+    const dispatch = useDispatch()
     const [error,setError] = useState(false)
     const [businessInputs,setBusinessInputs] = useState({
         merchantName: "",
@@ -20,7 +23,8 @@ const ClientForm = ({toggleForm}) => {
         idType: "",
         idNumber: "",
         msisdn: "",
-        address: ""
+        address: "",
+        email:""
     })
 
     const handleChangeBusinessInput = (e) => {
@@ -35,10 +39,10 @@ const ClientForm = ({toggleForm}) => {
     const hanldeSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post(`${baseURL}/merchant/`,
+            await axios.post(`${baseURL}/merchant/`,
             {...businessInputs,merchantRepresentativeDto:{...sellerInputs}})
-            const data = response?.data
-            console.log(data)
+            getMarchants(dispatch)
+            toggleForm()
         } catch (error) {
             console.log(error)
             setError(error.message)
@@ -46,7 +50,6 @@ const ClientForm = ({toggleForm}) => {
                 setError(null)
               }, 5000)
         }
-        toggleForm()
     }
 
 
@@ -95,7 +98,7 @@ const ClientForm = ({toggleForm}) => {
                     </div>
                     <div className='input-container'>
                         <label htmlFor='number'>Email:</label>
-                        <input name='address' type='text' placeholder="john@gmail.com" onChange={handleChangeBSellerInput}/>
+                        <input name='email' type='text' placeholder="john@gmail.com" onChange={handleChangeBSellerInput}/>
                     </div>
                     <div className='input-container'>
                         <label htmlFor='type'>Type d'identite:</label>
@@ -115,9 +118,13 @@ const ClientForm = ({toggleForm}) => {
                         <label htmlFor='number'>Numero de telephone:</label>
                         <input name='msisdn' type='text' placeholder="0786500090" onChange={handleChangeBSellerInput}/>
                     </div>
+                    <div className='input-container'>
+                        <label htmlFor='surname'>Address:</label>
+                        <input name='address' type='text' placeholder='Gisozi/Kigali' onChange={handleChangeBSellerInput}/>
+                    </div>
                 </div>
             </div>
-            {error && <div>{error}</div>}
+            {error && <div className='error'>{error}</div>}
             <div className='form-bottom'>
                 <input type='submit' value='Enregistrer' className='submit' />
                 <button onClick={toggleForm} className='cancel'>Fermer</button>

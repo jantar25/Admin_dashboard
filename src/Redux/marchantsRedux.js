@@ -20,7 +20,8 @@ const marchantsSlice = createSlice({
         getMarchantsFailure:(state,error)=>{
             state.isFetching=false;
             state.error=error;
-        }
+        },
+
     }
 
 })
