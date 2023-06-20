@@ -44,10 +44,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 0;
+    border-bottom: 1px solid gray;
 }
 
 .info-seller label {
     color: gray;
+    margin-right: .5rem;
 }
 
 .info-seller span {
@@ -56,15 +58,28 @@
     font-weight: 600;
 }
 
-@media screen and (min-width: 768px) {
-    .container-seller {
-        width: 60%;
-        padding: 2rem;
-    }
+.marchand-title {
+    font-size: 1rem;
+    color: gray;
 }
 
-@media screen and (min-width: 1024px) {
+.marchand-info-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.marchand-container {
+    padding: .5rem;
+}
+
+@media screen and (min-width: 768px) {
     .container-seller {
-        width: 50%;
+        width: 90%;
+        padding: 2rem;
+    }
+    .marchand-info-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
     }
 }
