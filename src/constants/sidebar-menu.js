@@ -20,7 +20,7 @@ const sidebar_menu = [
     {
         id: 3,
         icon: SellerIcon,
-        path: '/sellers',
+        path: '/merchands',
         title: 'Marchands',
     },
     {

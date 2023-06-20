@@ -19,7 +19,7 @@ const SellerMenu = ({seller,closeSeller,closeWallet,closeServiceFees}) => {
 
   return (
         <div className='seller-container' ref={dropDownRef}> 
-          <Link to={`/seller/${seller}`} style={{textDecoration:'none'}}>
+          <Link to={`/merchand/${seller}`} style={{textDecoration:'none'}}>
             <p className='clickable'>Plus d'information</p>
           </Link>
           <p className='clickable' onClick={handleServiceCost}>Frais de Service</p>

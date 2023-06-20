@@ -123,19 +123,21 @@ function Orders () {
                 {(isFetching) && <div className='loading'>Telechargement...</div>}
                 {marchants.length > 0 ? 
                     <Table 
-                        head={['ID','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"TAXE","MENU"]}
+                        head={['ID','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"CODE","TAXE","DATE D'ADHESION","MENU"]}
                         body={marchants.map(seller=>([
                             seller.merchantUid,
                             seller.merchantName,
                             seller.representativeName,
                             seller.businessType,
                             seller.status,
-                            seller.tinNumber
+                            seller.merchantCode,
+                            seller.tinNumber,
+                            new Date(seller.joinedDate).toJSON().slice(0, 16)
                         ]))}
                         getSeller={getSeller}
                         closeSeller={handleToggleSellerMenu}
                         />
-                        : <div className='not-found'>Pas de Marchants avec cette specification</div>
+                        : <div className='not-found'>Pas de Marchants</div>
                     }
             </div>
         </div>

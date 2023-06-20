@@ -17,6 +17,9 @@ export const getMarchants = async (dispatch) =>{
     } catch (error) {
         dispatch(getMarchantsFailure(error.payload));
         console.log(error);
+        setTimeout(() => {
+            dispatch(getMarchantsFailure(null))
+          }, 5000)
     }
 }
 
@@ -29,6 +32,9 @@ export const searchMarchants = async (dispatch,search) =>{
     } catch (error) {
         dispatch(searchMarchantsFailure(error.payload));
         console.log(error);
+        setTimeout(() => {
+            dispatch(searchMarchantsFailure(null))
+          }, 5000)
     }
 }
 
@@ -42,6 +48,9 @@ export const getClients = async (dispatch) =>{
     } catch (error) {
         dispatch(getClientsFailure(error.payload));
         console.log(error);
+        setTimeout(() => {
+            dispatch(getClientsFailure(null))
+          }, 5000)
     }
 }
 
@@ -54,6 +63,9 @@ export const searchClients = async (dispatch,search) =>{
     } catch (error) {
         dispatch(searchClientsFailure(error.payload));
         console.log(error);
+        setTimeout(() => {
+            dispatch(searchClientsFailure(null))
+          }, 5000)
     }
 }
 
@@ -67,6 +79,9 @@ export const userLogin = async (dispatch,user) =>{
         }
     else {
         dispatch(userLoginFailure('Username and/or password incorrecte'))
+        setTimeout(() => {
+            dispatch(userLoginFailure(null))
+          }, 5000)
     }
     // try {
     //     const res = (await publicRequest.post("/user/login",user));

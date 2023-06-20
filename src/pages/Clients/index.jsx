@@ -55,7 +55,7 @@ function Clients () {
                             new Date(client.joinedDate).toJSON().slice(0, 16)
                         ]))}
                         />
-                        : <div className='not-found'>Pas de clients avec ce specification</div>
+                        : <div className='not-found'>Pas de clients</div>
                     }
             </div>
         </div>

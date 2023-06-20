@@ -36,8 +36,8 @@ function App () {
                   <Routes>
                     <Route path="/" element={currentUser? <Dashboard/> : <Navigate to="/login" />} />
                     <Route exact path="/clients" element={currentUser? <Clients/> : <Navigate to="/login" />} />
-                    <Route exact path="/sellers" element={currentUser? <Sellers/> : <Navigate to="/login" />} />
-                    <Route exact path="/seller/:id" element={currentUser? <Seller/> : <Navigate to="/login" />} />
+                    <Route exact path="/merchands" element={currentUser? <Sellers/> : <Navigate to="/login" />} />
+                    <Route exact path="/merchand/:id" element={currentUser? <Seller/> : <Navigate to="/login" />} />
                     <Route exact path="/profile" element={currentUser? <Account/> : <Navigate to="/login" />} />
                     <Route exact path="/users" element={currentUser? <Users/> : <Navigate to="/login" />} />
                   </Routes>
