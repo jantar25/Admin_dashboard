@@ -9,7 +9,7 @@ const Seller = () => {
   const location = useLocation()
   const currentSellerId = location.pathname.split('/')[2];
   const {isLoading,apiData,serverError} = useFetch(`${baseURL}/merchant/${currentSellerId}`)
-  console.log(apiData)
+
   return (
     <div className='container-seller'>
       {isLoading && <div className='loading'>Telechargement...</div>}

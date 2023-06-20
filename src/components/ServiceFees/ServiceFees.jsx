@@ -1,16 +1,19 @@
 import React, { useState} from 'react'
+import axios from 'axios'
 
 import './service.css'
 import trash from '../../assets/icons/trash.svg'
+import { baseURL } from '../../constants/baseURL'
 
 const ServiceFees = ({seller,closeServiceFees}) => {
+  const [error,setError] = useState('')
   const [pay,setpay] = useState('')
   const [inputs,setInputs] = useState([
     {
-    from:'',
-    to:'',
-    pourcentage:'',
-    amount:'' 
+      chargeAmountType:'',
+      fromAmount:0,
+      toAmount:0,
+      chargeAmount:0 
   }
 ])
 
@@ -24,15 +27,24 @@ const handleChange = (index,e) => {
     setInputs(data);
   }
 
-  const handleFeesForm = (e) => {
+  const handleFeesForm = async(e) => {
     e.preventDefault()
-    console.log({...inputs,sellerId:seller,pay})
-    closeServiceFees()
+    try {
+      await axios.post(`${baseURL}/service/charge/`,
+      {merchantUid:seller,currency: "XAF","paidBy": pay,serviceChargeSlabs:[...inputs]})
+      closeServiceFees()
+  } catch (error) {
+      console.log(error)
+      setError(error.message)
+      setTimeout(() => {
+          setError(null)
+        }, 5000)
+  }    
   }
 
   const addFields = (e) => {
     e.preventDefault()
-    let newfield = {from:'', to:'', pourcentage:'', amount:'' }
+    let newfield = {fromAmount:0, toAmount:0, chargeAmount:0, chargeAmountType:'' }
     setInputs([...inputs, newfield])
   }
 
@@ -49,11 +61,11 @@ const handleChange = (index,e) => {
             <p className='form-head'>A la charge du:</p>
             <div className="radioBtn-container">
               <div className="radio-Btn">
-                <input id='seller' type="radio" name="pay" value="seller" onChange={handleChangePay} />
+                <input id='seller' type="radio" name="pay" value="MERCHANT" onChange={handleChangePay} />
                 <label htmlFor="seller">Marchand</label>
               </div>
               <div className="radio-Btn">
-                <input id='client' type="radio" name="pay" value="client" onChange={handleChangePay} />
+                <input id='client' type="radio" name="pay" value="CLIENT" onChange={handleChangePay} />
                 <label htmlFor="client">Client</label>
               </div>
             </div>
@@ -62,19 +74,22 @@ const handleChange = (index,e) => {
             <div className='form-inputs-container' key={index}>
                 <div className="input-label-container">
                   <label htmlFor="from">De:</label>
-                  <input id='from' type="number" name="from" value={input.name} onChange={(e)=>handleChange(index,e)}/>
+                  <input id='from' type="number" name="fromAmount" value={input.fromAmount} onChange={(e)=>handleChange(index,e)}/>
                 </div>
                 <div className="input-label-container">
                   <label htmlFor="from">A:</label>
-                  <input id='to' type="number" name="to" value={input.to} onChange={(e)=>handleChange(index,e)} />
+                  <input id='to' type="number" name="toAmount" value={input.toAmount} onChange={(e)=>handleChange(index,e)} />
+                </div>
+                <div className='input-label-container'>
+                    <label htmlFor="chargeAmountType">Type de charge:</label>
+                    <select name="chargeAmountType" value={input.chargeAmountType} onChange={(e)=>handleChange(index,e)}>
+                        <option value='PURCENTAGE'>Pourcentage</option>
+                        <option value='MONTANT-FIXE'>Montant fixe</option>
+                    </select>
                 </div>
                 <div className="input-label-container">
-                  <label htmlFor="pourcentage">Pourcentage:</label>
-                  <input id='pourcentage' type="number" name="pourcentage" value={input.pourcentage} onChange={(e)=>handleChange(index,e)}/>
-                </div>
-                <div className="input-label-container">
-                  <label htmlFor="amount">Montant fixe:</label>
-                  <input id='amount' type="number" name="amount" value={input.amount} onChange={(e)=>handleChange(index,e)} />
+                  <label htmlFor="amount">Montant:</label>
+                  <input id='amount' type="number" name="chargeAmount" value={input.chargeAmount} onChange={(e)=>handleChange(index,e)} />
                 </div>
                 <img src={trash} alt='delete-icon' style={{cursor:'pointer'}} onClick={removeFields} />
             </div>
@@ -82,6 +97,7 @@ const handleChange = (index,e) => {
           <div className='addForm-container'>
             <button className='addForm' onClick={addFields}>Ajouter formulaire</button>
           </div>
+          {error && <div className='error'>{error}</div>}
           <button onClick={handleFeesForm}>Approuver</button>
           <button className='close' onClick={closeServiceFees}>Fermer</button>
         </form>
