@@ -1,4 +1,5 @@
 import React, { useState} from 'react'
+import {useSelector} from 'react-redux';
 import axios from 'axios'
 
 import './service.css'
@@ -6,6 +7,7 @@ import trash from '../../assets/icons/trash.svg'
 import { baseURL } from '../../constants/baseURL'
 
 const ServiceFees = ({seller,closeServiceFees}) => {
+  const {marchants} = useSelector(state => state.marchants)
   const [error,setError] = useState('')
   const [pay,setpay] = useState('')
   const [inputs,setInputs] = useState([
@@ -67,8 +69,12 @@ const handleChange = (index,e) => {
     setInputs(data)
 }
 
+const currentMerchantFees = marchants.find(merchant => merchant.merchantUid === seller)?.serviceCharges
+console.log(currentMerchantFees)
+
   return (
     <div className='servicefees-container'>
+      {currentMerchantFees.paidBy === null ? 
         <form>
           <div className="">
             <p className='form-head'>A la charge du:</p>
@@ -115,6 +121,22 @@ const handleChange = (index,e) => {
           <button onClick={handleFeesForm}>Approuver</button>
           <button className='close' onClick={closeServiceFees}>Fermer</button>
         </form>
+        : <div>
+           <div className='info-seller'><label>A la charge du:</label><span>{currentMerchantFees.paidBy}</span></div>
+           {currentMerchantFees.serviceChargeSlabs !== null && 
+            <div>
+              {currentMerchantFees.serviceChargeSlabs.map((slab,index) => 
+              <div className='slab-container' key={slab.serviceChargeSlabUid}>
+                <span>*</span>
+                <div className='slab'><label>De:</label><span>{slab.fromAmount}</span></div>
+                <div className='slab'><label>A:</label><span>{slab.toAmount}</span></div>
+                <div className='slab'><span>{slab.chargeAmountType}</span></div>
+                <div className='slab'><label>De:</label><span>{slab.chargeAmount}</span></div>
+              </div>)}
+            </div>}
+           <button className='close' onClick={closeServiceFees}>Fermer</button>
+        </div>
+        }
     </div>
   )
 }

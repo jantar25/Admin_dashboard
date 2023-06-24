@@ -85,6 +85,21 @@
     margin-left: 1rem;
 }
 
+.slab-container {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.slab-container .slab {
+    margin: 1rem .5rem;
+}
+
+.slab label {
+    margin-right: .2rem;
+    color: rgb(159, 167, 167);
+}
+
 @media screen and (min-width: 640px) {
     .form-inputs-container {
         flex-direction: row;
