@@ -25,7 +25,7 @@ function Orders () {
     const [toggleServiceFees,setToggleServiceFees] = useState(false)
 
     const {marchants,isFetching} = useSelector(state => state.marchants)
-    console.log(marchants)
+
     const handleToggleSellerMenu = () => {
         setToggleSeller(!toggleSeller) 
     }

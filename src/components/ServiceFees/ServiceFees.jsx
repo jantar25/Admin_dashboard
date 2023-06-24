@@ -23,15 +23,28 @@ const handleChangePay = (e) => {
 
 const handleChange = (index,e) => {
     let data = [...inputs];
-    data[index][e.target.name] = e.target.value;
+    data[index][e.target.name] = e.target.value
     setInputs(data);
+  }
+
+  const refactoredInputs = inputs.map(input => ({
+    chargeAmountType:input.chargeAmountType,
+    fromAmount:Number(input.fromAmount),
+    toAmount:Number(input.toAmount),
+    chargeAmount:Number(input.chargeAmount),
+  }))
+
+  const fees = {
+    merchantUid:seller,
+    currency: "XAF",
+    paidBy: pay,
+    serviceChargeSlabs:[...refactoredInputs]
   }
 
   const handleFeesForm = async(e) => {
     e.preventDefault()
     try {
-      await axios.post(`${baseURL}/service/charge/`,
-      {merchantUid:seller,currency: "XAF","paidBy": pay,serviceChargeSlabs:[...inputs]})
+      await axios.post(`${baseURL}/service/charge/`,fees)
       closeServiceFees()
   } catch (error) {
       console.log(error)
@@ -74,22 +87,23 @@ const handleChange = (index,e) => {
             <div className='form-inputs-container' key={index}>
                 <div className="input-label-container">
                   <label htmlFor="from">De:</label>
-                  <input id='from' type="number" name="fromAmount" value={input.fromAmount} onChange={(e)=>handleChange(index,e)}/>
+                  <input id='from' type="number" value={input.fromAmount} name="fromAmount" onChange={(e)=>handleChange(index,e)}/>
                 </div>
                 <div className="input-label-container">
                   <label htmlFor="from">A:</label>
-                  <input id='to' type="number" name="toAmount" value={input.toAmount} onChange={(e)=>handleChange(index,e)} />
+                  <input id='to' type="number" value={input.toAmount} name="toAmount" onChange={(e)=>handleChange(index,e)} />
                 </div>
                 <div className='input-label-container'>
                     <label htmlFor="chargeAmountType">Type de charge:</label>
                     <select name="chargeAmountType" value={input.chargeAmountType} onChange={(e)=>handleChange(index,e)}>
-                        <option value='PURCENTAGE'>Pourcentage</option>
+                        <option value=''>--Choisir mode--</option>
+                        <option value='POURCENTAGE'>Pourcentage</option>
                         <option value='MONTANT-FIXE'>Montant fixe</option>
                     </select>
                 </div>
                 <div className="input-label-container">
                   <label htmlFor="amount">Montant:</label>
-                  <input id='amount' type="number" name="chargeAmount" value={input.chargeAmount} onChange={(e)=>handleChange(index,e)} />
+                  <input id='amount' type="number" value={input.chargeAmount} name="chargeAmount" onChange={(e)=>handleChange(index,e)} />
                 </div>
                 <img src={trash} alt='delete-icon' style={{cursor:'pointer'}} onClick={removeFields} />
             </div>
