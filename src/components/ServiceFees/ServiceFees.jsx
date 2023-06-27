@@ -5,6 +5,7 @@ import axios from 'axios'
 import './service.css'
 import trash from '../../assets/icons/trash.svg'
 import { baseURL } from '../../constants/baseURL'
+import ExistingServiceFees from '../ExistingServiceFees/ExistingServiceFees';
 
 const ServiceFees = ({seller,closeServiceFees}) => {
   const {marchants} = useSelector(state => state.marchants)
@@ -121,21 +122,23 @@ console.log(currentMerchantFees)
           <button onClick={handleFeesForm}>Approuver</button>
           <button className='close' onClick={closeServiceFees}>Fermer</button>
         </form>
-        : <div>
-           <div className='info-seller'><label>A la charge du:</label><span>{currentMerchantFees.paidBy}</span></div>
-           {currentMerchantFees.serviceChargeSlabs !== null && 
-            <div>
-              {currentMerchantFees.serviceChargeSlabs.map((slab,index) => 
-              <div className='slab-container' key={slab.serviceChargeSlabUid}>
-                <span>*</span>
-                <div className='slab'><label>De:</label><span>{slab.fromAmount}</span></div>
-                <div className='slab'><label>A:</label><span>{slab.toAmount}</span></div>
-                <div className='slab'><span>{slab.chargeAmountType}</span></div>
-                <div className='slab'><label>De:</label><span>{slab.chargeAmount}</span></div>
-              </div>)}
-            </div>}
-           <button className='close' onClick={closeServiceFees}>Fermer</button>
-        </div>
+        : <ExistingServiceFees seller={seller} closeServiceFees={closeServiceFees} marchant={currentMerchantFees} />
+        
+        // <div>
+        //    <div className='info-seller'><label>A la charge du:</label><span>{currentMerchantFees.paidBy}</span></div>
+        //    {currentMerchantFees.serviceChargeSlabs !== null && 
+        //     <div>
+        //       {currentMerchantFees.serviceChargeSlabs.map((slab,index) => 
+        //       <div className='slab-container' key={slab.serviceChargeSlabUid}>
+        //         <span>*</span>
+        //         <div className='slab'><label>De:</label><span>{slab.fromAmount}</span></div>
+        //         <div className='slab'><label>A:</label><span>{slab.toAmount}</span></div>
+        //         <div className='slab'><span>{slab.chargeAmountType}</span></div>
+        //         <div className='slab'><label>De:</label><span>{slab.chargeAmount}</span></div>
+        //       </div>)}
+        //     </div>}
+        //    <button className='close' onClick={closeServiceFees}>Fermer</button>
+        // </div>
         }
     </div>
   )
