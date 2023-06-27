@@ -25,7 +25,7 @@ function Orders () {
     const [toggleServiceFees,setToggleServiceFees] = useState(false)
 
     const {marchants,isFetching} = useSelector(state => state.marchants)
-
+    console.log(marchants)
     const handleToggleSellerMenu = () => {
         setToggleSeller(!toggleSeller) 
     }
@@ -123,14 +123,15 @@ function Orders () {
                 {(isFetching) && <div className='loading'>Telechargement...</div>}
                 {marchants.length > 0 ? 
                     <Table 
-                        head={['ID','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"CODE","TAXE","DATE D'ADHESION","MENU"]}
-                        body={marchants.map(seller=>([
+                        head={['ID','No','CODE','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"TAXE","DATE D'ADHESION","MENU"]}
+                        body={marchants.map((seller,index)=>([
                             seller.merchantUid,
+                            index+1,
+                            seller.merchantCode,
                             seller.merchantName,
                             seller.representativeName,
                             seller.businessType,
                             seller.status,
-                            seller.merchantCode,
                             seller.tinNumber,
                             new Date(seller.joinedDate).toJSON().slice(0, 16)
                         ]))}

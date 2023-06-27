@@ -63,6 +63,10 @@ td span {
   margin-right: 10px;
 }
 
+.hide-item {
+  display: none;
+}
+
 @media screen and (max-width: 810px) {
   thead {
     display: none;

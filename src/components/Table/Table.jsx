@@ -17,13 +17,14 @@ const Table = ({head,body,getSeller,closeSeller}) => {
         <table>
             <thead>
                 <tr>
-                    {head.map((h,index) =><th key={index}>{h}</th>)}
+                    {head.map((h,index) => head.indexOf(h) !== 0? <th key={index}>{h}</th> : null)}
                 </tr>
             </thead>
             {body.length !== 0 ?
             <tbody>{body.map((seller, index) => (
                 <tr key={index}>
-                    {seller.map((item,index) => (
+                    {seller.map((item,index) => 
+                        seller.indexOf(item) !== 0?
                         <td data-label={head[index]} key={index}>{item === 'active' || item === 'inactive'?
                             <div className='status-container'>
                                 {item === 'active' ?
@@ -38,8 +39,8 @@ const Table = ({head,body,getSeller,closeSeller}) => {
                                 <span>{item}</span>
                             </div>
                         : <span>{item}</span>}
-                        </td>
-                    ))}
+                        </td> : null
+                    )}
                     {head.includes("MENU") && 
                     <td>
                         <img
