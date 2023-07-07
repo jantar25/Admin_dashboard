@@ -5,7 +5,6 @@ import axios from 'axios'
 import './service.css'
 import trash from '../../assets/icons/trash.svg'
 import { baseURL } from '../../constants/baseURL'
-import ExistingServiceFees from '../ExistingServiceFees/ExistingServiceFees';
 
 const ServiceFees = ({seller,closeServiceFees}) => {
   const {marchants} = useSelector(state => state.marchants)
@@ -75,7 +74,6 @@ console.log(currentMerchantFees)
 
   return (
     <div className='servicefees-container'>
-      {currentMerchantFees.paidBy === null ? 
         <form>
           <div className="">
             <p className='form-head'>A la charge du:</p>
@@ -90,6 +88,35 @@ console.log(currentMerchantFees)
               </div>
             </div>
           </div>
+          {currentMerchantFees.serviceChargeSlabs !== null &&
+          <div>
+            {currentMerchantFees.serviceChargeSlabs.map((slab,index) => 
+                <div className='form-inputs-container' key={slab.serviceChargeSlabUid}>
+                    <div className="input-label-container">
+                      <label htmlFor="from">De:</label>
+                      <input id='from' type="number" value={slab.fromAmount} name="fromAmount" onChange={(e)=>handleChange(index,e)}/>
+                    </div>
+                    <div className="input-label-container">
+                      <label htmlFor="from">A:</label>
+                      <input id='to' type="number" value={slab.toAmount} name="toAmount" onChange={(e)=>handleChange(index,e)} />
+                    </div>
+                    <div className='input-label-container'>
+                      <label htmlFor="chargeAmountType">Type de charge:</label>
+                      <select name="chargeAmountType" value={slab.chargeAmountType} onChange={(e)=>handleChange(index,e)}>
+                        <option value=''>--Choisir mode--</option>
+                        <option value='POURCENTAGE'>Pourcentage</option>
+                        <option value='MONTANT-FIXE'>Montant fixe</option>
+                      </select>
+                    </div>
+                    <div className="input-label-container">
+                      <label htmlFor="amount">Montant:</label>
+                      <input id='amount' type="number" value={slab.chargeAmount} name="chargeAmount" onChange={(e)=>handleChange(index,e)} />
+                    </div>
+                    <img src={trash} alt='delete-icon' style={{cursor:'pointer'}} onClick={removeFields} />
+                  </div>
+                )}
+          </div>
+          }
           {inputs.map((input, index) => (
             <div className='form-inputs-container' key={index}>
                 <div className="input-label-container">
@@ -122,24 +149,6 @@ console.log(currentMerchantFees)
           <button onClick={handleFeesForm}>Approuver</button>
           <button className='close' onClick={closeServiceFees}>Fermer</button>
         </form>
-        : <ExistingServiceFees seller={seller} closeServiceFees={closeServiceFees} marchant={currentMerchantFees} />
-        
-        // <div>
-        //    <div className='info-seller'><label>A la charge du:</label><span>{currentMerchantFees.paidBy}</span></div>
-        //    {currentMerchantFees.serviceChargeSlabs !== null && 
-        //     <div>
-        //       {currentMerchantFees.serviceChargeSlabs.map((slab,index) => 
-        //       <div className='slab-container' key={slab.serviceChargeSlabUid}>
-        //         <span>*</span>
-        //         <div className='slab'><label>De:</label><span>{slab.fromAmount}</span></div>
-        //         <div className='slab'><label>A:</label><span>{slab.toAmount}</span></div>
-        //         <div className='slab'><span>{slab.chargeAmountType}</span></div>
-        //         <div className='slab'><label>De:</label><span>{slab.chargeAmount}</span></div>
-        //       </div>)}
-        //     </div>}
-        //    <button className='close' onClick={closeServiceFees}>Fermer</button>
-        // </div>
-        }
     </div>
   )
 }
