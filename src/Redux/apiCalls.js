@@ -7,6 +7,8 @@ import {getClientsStart,getClientsSuccess,getClientsFailure,
 
 import {userLoginStart,userLoginSuccess,userLoginFailure,userLogoutSuccess} from './currentUserRedux'
 
+import {getTransactionsStart,getTransactionsSuccess,getTransactionsFailure} from './transactionRedux'
+
 
 // GET ALL MERCHANTS
 export const getMarchants = async (dispatch) =>{
@@ -34,6 +36,21 @@ export const searchMarchants = async (dispatch,search) =>{
         console.log(error);
         setTimeout(() => {
             dispatch(searchMarchantsFailure(null))
+          }, 5000)
+    }
+}
+
+// GET ALL TRANSACTIONS
+export const getTransactions = async (dispatch) =>{
+    dispatch(getTransactionsStart());
+    try {
+        const res = await publicRequest.get("/transaction/0/100");
+        dispatch(getTransactionsSuccess(res.data));
+    } catch (error) {
+        dispatch(getMarchantsFailure(error.payload));
+        console.log(error);
+        setTimeout(() => {
+            dispatch(getTransactionsFailure(null))
           }, 5000)
     }
 }

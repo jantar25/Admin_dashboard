@@ -3,6 +3,7 @@ import SellerIcon from '../assets/icons/seller.svg';
 import ClientsIcon from '../assets/icons/clients.svg';
 import UserIcon from '../assets/icons/user.svg';
 import UsersIcon from '../assets/icons/users.svg';
+import ReceiptIcon from '../assets/icons/receipt.svg'
 
 const sidebar_menu = [
     {
@@ -31,6 +32,12 @@ const sidebar_menu = [
     },
     {
         id: 5,
+        icon: ReceiptIcon,
+        path: '/transactions',
+        title: 'Transactions',
+    },
+    {
+        id: 6,
         icon: UserIcon,
         path: '/profile',
         title: 'Mon compte',

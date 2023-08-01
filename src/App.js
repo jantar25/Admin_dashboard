@@ -14,6 +14,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Account from './pages/Account/Account';
 import Login from './pages/Login/Login'
 import Seller from './pages/Seller/Seller';
+import Transactions from './pages/Transactions/Transactions';
 
 
 function App () {
@@ -39,6 +40,7 @@ function App () {
                     <Route exact path="/merchands" element={currentUser? <Sellers/> : <Navigate to="/login" />} />
                     <Route exact path="/merchand/:id" element={currentUser? <Seller/> : <Navigate to="/login" />} />
                     <Route exact path="/profile" element={currentUser? <Account/> : <Navigate to="/login" />} />
+                    <Route exact path="/transactions" element={currentUser? <Transactions/> : <Navigate to="/login" />} />
                     <Route exact path="/users" element={currentUser? <Users/> : <Navigate to="/login" />} />
                   </Routes>
               </div>
