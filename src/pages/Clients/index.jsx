@@ -45,14 +45,14 @@ function Clients () {
                 {isFetching && <div className='loading'>Telechargement...</div>}
                 {clients.length > 0? 
                     <Table 
-                        head={['ID','No','NOM','POST-NOM','TELEPHONE','OPERATEUR',"DATE D'ADHESION"]}
+                        head={['ID','NOM','POST-NOM','TELEPHONE','OPERATEUR',"DATE D'ADHESION"]}
                         body={clients.map(client=>([
                             client.customerUid,
                             client.firstname,
                             client.lastname,
                             client.telephone,
                             client.operator,
-                            new Date(client.joinedDate).toJSON().slice(0, 16)
+                            new Date(client.joinedDate).toJSON().slice(0, 10)
                         ]))}
                         />
                         : <div className='not-found'>Pas de clients</div>

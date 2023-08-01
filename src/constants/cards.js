@@ -69,3 +69,26 @@ export const cardItemsClients = [
     background: "#e7dac2",
   },
 ];
+
+export const cardItemsTransaction = [
+  {
+    id: 1,
+    title: "Total",
+    amount: 2341,
+    lastIncome: 2219,
+    description: "Depuis le debut",
+    Icon: ClientIcon,
+    color: "#004B77",
+    background: "#cee2ee",
+  },
+  {
+    id: 2,
+    title: "Total",
+    amount: 1780,
+    lastIncome: 2110,
+    description: "Pendant le 90 jours",
+    Icon: activeIcon,
+    color: "#044404",
+    background: "#c4e6c4",
+  },
+];

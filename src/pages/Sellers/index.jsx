@@ -133,7 +133,7 @@ function Orders () {
                             seller.businessType,
                             seller.status,
                             seller.tinNumber,
-                            new Date(seller.joinedDate).toJSON().slice(0, 16)
+                            new Date(seller.joinedDate).toJSON().slice(0, 10)
                         ]))}
                         getSeller={getSeller}
                         closeSeller={handleToggleSellerMenu}
