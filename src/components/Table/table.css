@@ -13,7 +13,7 @@ th {
   background: transparent;
   box-shadow: none;
   color: #2d83b5;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: 0.035em;
@@ -38,7 +38,7 @@ td {
 
 td span {
   margin: 0px;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   line-height: 1.25;
   letter-spacing: 0.035em;
   opacity: 1;

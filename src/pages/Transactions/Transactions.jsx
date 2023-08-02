@@ -23,7 +23,7 @@ const Transactions = () => {
         {isFetching && <div className='loading'>Telechargement...</div>}
         {transactions.length > 0? 
             <Table 
-                head={['ID','REF NUMBER','PAYANT','MONTANT','FRAIS-CHARGE','CLIENT','CLIENT PHONE','MARCHANT','MARCHANT-CODE','MNO',"DATE"]}
+                head={['ID','No REF','PAYANT','MONTANT','FRAIS','CLIENT','PHONE','OPERATEUR','MARCHANT','CODE',,"STATUS","DATE"]}
                 body={transactions.map(transaction=>([
                     transaction.transactionUid,
                     transaction.referenceNumber,
@@ -32,9 +32,10 @@ const Transactions = () => {
                     transaction.serviceCharge,
                     transaction.customerNames,
                     transaction.customerMsisdn,
+                    transaction.mno,
                     transaction.merchantNames,
                     transaction.merchantCode,
-                    transaction.mno,
+                    transaction.transactionStatus,
                     new Date(transaction.transactionDate).toJSON().slice(0, 10)
                 ]))}
                 />
