@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { FiMenu } from 'react-icons/fi'
 
 import './styles.css';
@@ -7,6 +8,8 @@ import NotificationIcon from '../../assets/icons/notification.svg';
 import logo from '../../assets/images/logo.png';
 
 function DashboardHeader ({handleSidebar}) {
+    const {currentUser} = useSelector(state => state.currentUser)
+
     return(
         <div className='dashbord-header-container'>
             <div className='dashbord-header-left'>
@@ -16,6 +19,12 @@ function DashboardHeader ({handleSidebar}) {
                 <img src={logo} alt="logo" />
             </div>
             <div className='dashbord-header-right'>
+                {!currentUser?.isAdmin && 
+                    <div className='solde'>
+                        <span>Solde: </span>
+                        <h3>20000 FCFA</h3>
+                    </div>
+                }
                 <img 
                     src={NotificationIcon}
                     alt='settings-icon'

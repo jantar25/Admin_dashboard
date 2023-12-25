@@ -65,6 +65,17 @@
     font-size: 8px;
 }
 
+.dashbord-header-right .solde {
+    color: #fff;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.dashbord-header-right .solde h3{
+    margin-left: 10px;
+}
+
 @media screen and (max-width: 480px) {
     .dashbord-header-container{
         padding: 0 1rem;

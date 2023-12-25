@@ -15,6 +15,9 @@ import Account from './pages/Account/Account';
 import Login from './pages/Login/Login'
 import Seller from './pages/Seller/Seller';
 import Transactions from './pages/Transactions/Transactions';
+import Liquidations from './pages/Liquidations/Liquidations';
+import ClientTransaction from './pages/ClientTransaction/ClientTransaction';
+import ClientLiquidation from './pages/ClientLiquidation/ClientLiquidation';
 
 
 function App () {
@@ -36,12 +39,15 @@ function App () {
               <div className='dashboard-body'>
                   <Routes>
                     <Route path="/" element={currentUser? <Dashboard/> : <Navigate to="/login" />} />
-                    <Route exact path="/clients" element={currentUser? <Clients/> : <Navigate to="/login" />} />
-                    <Route exact path="/merchands" element={currentUser? <Sellers/> : <Navigate to="/login" />} />
-                    <Route exact path="/merchand/:id" element={currentUser? <Seller/> : <Navigate to="/login" />} />
                     <Route exact path="/profile" element={currentUser? <Account/> : <Navigate to="/login" />} />
-                    <Route exact path="/transactions" element={currentUser? <Transactions/> : <Navigate to="/login" />} />
-                    <Route exact path="/users" element={currentUser? <Users/> : <Navigate to="/login" />} />
+                    <Route exact path="/transaction" element={!currentUser?.isAdmin? <ClientTransaction /> : <Navigate to="/login" />} />
+                    <Route exact path="/liquidation" element={!currentUser?.isAdmin? <ClientLiquidation/> : <Navigate to="/login" />} />
+                    <Route exact path="/clients" element={currentUser?.isAdmin? <Clients/> : <Navigate to="/login" />} />
+                    <Route exact path="/merchands" element={currentUser?.isAdmin? <Sellers/> : <Navigate to="/login" />} />
+                    <Route exact path="/merchand/:id" element={currentUser?.isAdmin? <Seller/> : <Navigate to="/login" />} />
+                    <Route exact path="/transactions" element={currentUser?.isAdmin? <Transactions/> : <Navigate to="/login" />} />
+                    <Route exact path="/liquidations" element={currentUser?.isAdmin? <Liquidations/> : <Navigate to="/login" />} />
+                    <Route exact path="/users" element={currentUser?.isAdmin? <Users/> : <Navigate to="/login" />} />
                   </Routes>
               </div>
             </div>

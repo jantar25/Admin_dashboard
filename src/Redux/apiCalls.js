@@ -92,9 +92,10 @@ export const searchClients = async (dispatch,search) =>{
 export const userLogin = async (dispatch,user) =>{
     dispatch(userLoginStart());
     if (user.userCode === 'Admin' && user.password === '123') {
-        dispatch(userLoginSuccess(user));
-        }
-    else {
+        dispatch(userLoginSuccess({...user,isAdmin:true}));
+    } else if (user.userCode === 'Client' && user.password === '123') {
+        dispatch(userLoginSuccess({...user,isAdmin:false}));
+    } else {
         dispatch(userLoginFailure('Username and/or password incorrecte'))
         setTimeout(() => {
             dispatch(userLoginFailure(null))
