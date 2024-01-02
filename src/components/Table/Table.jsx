@@ -5,7 +5,25 @@ import CancelIcon from '../../assets/icons/cancel.svg';
 import Info from '../../assets/icons/info.svg'
 import './table.css'
 
-const Table = ({head,body}) => {
+const Table = ({head,body,resetUserPassword,activateUser,deactivateUser}) => {
+    const handleActionChange = (e, userId) => {
+        const selectedAction = e.target.value;
+    
+        switch (selectedAction) {
+          case 'resetPassword':
+            resetUserPassword(userId);
+            break;
+          case 'activateUser':
+            activateUser(userId);
+            break;
+          case 'deactivateUser':
+            deactivateUser(userId);
+            break;
+          default:
+            break;
+        }
+        e.target.value = '';
+      };
 
   return (
     <div className='table-container'>
@@ -36,7 +54,7 @@ const Table = ({head,body}) => {
                         : <span>{item}</span>}
                         </td> : null
                     )}
-                    {head.includes("ACTION") && 
+                    {head.includes("PLUS D'INFOS") && 
                     <td>
                         <Link to={`/merchand/${seller[0]}`} style={{textDecoration:'none'}} className='moreInfo'>
                             <img
@@ -45,6 +63,17 @@ const Table = ({head,body}) => {
                                 className='menu-list' />
                             <span>Info</span>
                         </Link>
+                    </td> }
+                    {head.includes("ACTION") && 
+                    <td>
+                        <div>
+                            <select onChange={(e) => handleActionChange(e, seller[0])}>
+                                <option value="">--Choisir l'action--</option>
+                                <option value="resetPassword">Réinitialiser Password</option>
+                                <option value="activateUser">Activer</option>
+                                <option value="deactivateUser">Désactivé</option>
+                            </select>
+                        </div>
                     </td> }
                 </tr>
                 ))}

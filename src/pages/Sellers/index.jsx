@@ -74,7 +74,7 @@ function Orders () {
                 {(isFetching) && <div className='loading'>Telechargement...</div>}
                 {marchants.length > 0 ? 
                     <Table 
-                        head={['ID','No','CODE','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"TAXE","DATE D'ADHESION","ACTION"]}
+                        head={['ID','No','CODE','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"TAXE","DATE D'ADHESION","PLUS D'INFOS"]}
                         body={marchants.map((seller,index)=>([
                             seller.merchantUid,
                             index+1,

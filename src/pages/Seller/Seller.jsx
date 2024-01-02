@@ -17,9 +17,10 @@ const Seller = () => {
       {apiData && 
       <div>
         <div className='seller-type-container'><span className='seller-type'>{apiData.merchantName}</span></div>
+        <div className='seller-type-container'><span>Solde:</span><span className='seller-type'>{apiData.balance}</span>FCFA</div>
         <div className="marchand-info-wrapper">
           <div className='marchand-container'>
-            <h1 className='marchand-title'>INFO SUR LE MARCHAND:</h1>
+            <h1 className='marchand-title'>INFORAMATION DU MARCHAND:</h1>
             <div className='info-seller'><label>ID:</label><span>{apiData.merchantUid}</span></div>
             <div className='info-seller'><label>Type:</label><span>{apiData.businessType}</span></div>
             <div className='info-seller'><label>Operation:</label><span>{apiData.areaOfOperation}</span></div>
@@ -29,7 +30,7 @@ const Seller = () => {
             <div className='info-seller'><label>Address:</label><span>{apiData.address}</span></div>
           </div>
           <div className='marchand-container'>
-            <h1 className='marchand-title'>INFO SUR LE REPRESENTANT:</h1>
+            <h1 className='marchand-title'>INFORMATION DU REPRESENTANT:</h1>
             <div className='info-seller'><label>ID:</label><span>{apiData.merchantRepresentativeDto.representativeUid}</span></div>
             <div className='info-seller'><label>ID-Type:</label><span>{apiData.merchantRepresentativeDto.idType}</span></div>
             <div className='info-seller'><label>ID-number:</label><span>{apiData.merchantRepresentativeDto.idNumber}</span></div>
@@ -38,6 +39,12 @@ const Seller = () => {
             <div className='info-seller'><label>Address:</label><span>{apiData.merchantRepresentativeDto.address}</span></div>
           </div>
         </div>
+        <div className='marchand-container'>
+            <h1 className='marchand-title'>MODALITE DE PAIMENT:</h1>
+            <div className='info-seller'><label>Liquidation-Type:</label><span>{apiData.paymentInfo.disbursement}</span></div>
+            <div className='info-seller'><label>Operateur/Banque:</label><span>{apiData.paymentInfo.receiptor}</span></div>
+            <div className='info-seller'><label>Numero de compte:</label><span>{apiData.paymentInfo.accountNumber}</span></div>
+          </div>
       </div>
       }
     </div>

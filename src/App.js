@@ -9,7 +9,7 @@ import DashboardHeader from './components/DashboardHeader';
 import './App.css';
 import Clients from './pages/Clients';
 import Sellers from './pages/Sellers';
-import Users from './pages/Users'
+import Users from './pages/Users/Users'
 import Dashboard from './pages/Dashboard/Dashboard';
 import Account from './pages/Account/Account';
 import Login from './pages/Login/Login'
