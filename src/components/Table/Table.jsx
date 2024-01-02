@@ -1,16 +1,11 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 import DoneIcon from '../../assets/icons/done.svg';
 import CancelIcon from '../../assets/icons/cancel.svg';
 import Menu from '../../assets/icons/list.svg'
 import './table.css'
 
-const Table = ({head,body,getSeller,closeSeller}) => {
-
-    const handleToggleSeller = (seller) => {
-        getSeller(seller)
-        closeSeller()
-    }
+const Table = ({head,body}) => {
 
   return (
     <div className='table-container'>
@@ -41,13 +36,15 @@ const Table = ({head,body,getSeller,closeSeller}) => {
                         : <span>{item}</span>}
                         </td> : null
                     )}
-                    {head.includes("MENU") && 
+                    {head.includes("ACTION") && 
                     <td>
-                        <img
-                            src={Menu}
-                            alt='Menu-icon' 
-                            className='menu-list' 
-                            onClick={() => handleToggleSeller(seller[0])}/>
+                        <Link to={`/merchand/${seller[0]}`} style={{textDecoration:'none'}} className='moreInfo'>
+                            <img
+                                src={Menu}
+                                alt='Menu-icon' 
+                                className='menu-list' />
+                            <span>Info</span>
+                        </Link>
                     </td> }
                 </tr>
                 ))}

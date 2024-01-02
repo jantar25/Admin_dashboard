@@ -9,41 +9,18 @@ import './styles.css';
 import Cards from '../../components/Cards/Cards';
 import {cardItemsClients} from '../../constants/cards';
 import ClientForm from '../../components/ClientForm/ClientForm';
-import SellerMenu from '../../components/SellerMenu/SellerMenu';
-import Wallet from '../../components/Wallet/Wallet';
-import ServiceFees from '../../components/ServiceFees/ServiceFees';
 import searchIcon from '../../assets/icons/search.svg'
 
 
 function Orders () {
     const dispatch = useDispatch()
     const [search, setSearch] = useState('');
-    const [singleSeller, setSingleSeller] = useState();
     const [toggleForm,setToggleForm] = useState(false);
-    const [toggleSeller,setToggleSeller] = useState(false)
-    const [toggleWallet,setToggleWallet] = useState(false);
-    const [toggleServiceFees,setToggleServiceFees] = useState(false)
 
     const {marchants,isFetching} = useSelector(state => state.marchants)
-    console.log(marchants)
-    const handleToggleSellerMenu = () => {
-        setToggleSeller(!toggleSeller) 
-    }
-
-    const handleToggleWallet = () => {
-        setToggleWallet(!toggleWallet)
-    }
-
-    const handleToggleServiceFees = () => {
-        setToggleServiceFees(!toggleServiceFees)
-    }
 
     const handleToggleForm = () => {
         setToggleForm(!toggleForm)
-    }
-
-    const getSeller = (seller) => {
-        setSingleSeller(seller)
     }
 
     const handleSearch = async () => {
@@ -54,7 +31,7 @@ function Orders () {
         }
     };
 
-    if(toggleForm || toggleSeller || toggleWallet || toggleServiceFees){
+    if(toggleForm){
         document.body.classList.add('overflow-hidden')
       } else  {
           document.body.classList.remove('overflow-hidden')
@@ -75,32 +52,6 @@ function Orders () {
                         </div>
                     </div>
                 </div>
-                }
-                {toggleSeller && 
-                    <div className='modal-container'>
-                        <div className='modal-cover'>
-                            <SellerMenu 
-                                seller={singleSeller} 
-                                closeSeller={handleToggleSellerMenu} 
-                                closeWallet={handleToggleWallet}
-                                closeServiceFees={handleToggleServiceFees}
-                                />
-                        </div>
-                    </div>
-                }
-                {toggleWallet && 
-                    <div className='modal-container'>
-                        <div className='modal-cover'>
-                            <Wallet seller={singleSeller} closeWallet={handleToggleWallet} />
-                        </div>
-                    </div>
-                }
-                {toggleServiceFees && 
-                    <div className='modal-container'>
-                        <div className='modal-cover'>
-                            <ServiceFees seller={singleSeller} closeServiceFees={handleToggleServiceFees} />
-                        </div>
-                    </div>
                 }
             <div className='dashboard-content-container'>
                 <div className='dashboard-content-header'>
@@ -123,7 +74,7 @@ function Orders () {
                 {(isFetching) && <div className='loading'>Telechargement...</div>}
                 {marchants.length > 0 ? 
                     <Table 
-                        head={['ID','No','CODE','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"TAXE","DATE D'ADHESION","MENU"]}
+                        head={['ID','No','CODE','ENTREPRISE','REPRESENTANT','TYPE','STATUS',"TAXE","DATE D'ADHESION","ACTION"]}
                         body={marchants.map((seller,index)=>([
                             seller.merchantUid,
                             index+1,
@@ -135,8 +86,6 @@ function Orders () {
                             seller.tinNumber,
                             new Date(seller.joinedDate).toJSON().slice(0, 10)
                         ]))}
-                        getSeller={getSeller}
-                        closeSeller={handleToggleSellerMenu}
                         />
                         : <div className='not-found'>Pas de Marchants</div>
                     }
