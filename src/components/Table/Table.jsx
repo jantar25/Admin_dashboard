@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import DoneIcon from '../../assets/icons/done.svg';
 import CancelIcon from '../../assets/icons/cancel.svg';
-import Menu from '../../assets/icons/list.svg'
+import Info from '../../assets/icons/info.svg'
 import './table.css'
 
 const Table = ({head,body}) => {
@@ -40,8 +40,8 @@ const Table = ({head,body}) => {
                     <td>
                         <Link to={`/merchand/${seller[0]}`} style={{textDecoration:'none'}} className='moreInfo'>
                             <img
-                                src={Menu}
-                                alt='Menu-icon' 
+                                src={Info}
+                                alt='Info-icon' 
                                 className='menu-list' />
                             <span>Info</span>
                         </Link>

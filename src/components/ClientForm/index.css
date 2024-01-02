@@ -48,6 +48,7 @@
 
 .form-bottom .submit {
     padding: 10px 20px;
+    margin: 10px;
     font-size: 1rem;
     color: #fff;
     background: #2075bc;
@@ -62,6 +63,12 @@
 
 .form-bottom .cancel {
     background: red;
+    margin: 10px;
+}
+
+.form-bottom .changePage {
+    background: gray;
+    margin: 10px;
 }
 
 @media only screen and (min-width: 835px) {
@@ -74,5 +81,11 @@
     .form-left {
     flex: 1;
     padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .form-bottom {
+        flex-direction: column;
     }
 }
