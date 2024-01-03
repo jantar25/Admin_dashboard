@@ -4,15 +4,19 @@ import ReactApexChart from 'react-apexcharts'
 const Chart = () => {
   const [state,setState] = useState({
     series: [{
-      name: 'Clients',
+      name: 'Total Clients',
       data: [31, 100, 28, 51, 42, 17, 100]
     }, {
-      name: 'Interets',
+      name: 'Clients Active',
       data: [11, 32, 45, 102, 34, 52, 41]
     },
     {
-      name: 'depots',
+      name: 'Total Marchands',
       data: [19, 15, 93, 28, 45, 59, 100]
+    },
+    {
+      name: 'Marchands Active',
+      data: [4, 65, 33, 88, 35, 29, 10]
     }],
     options: {
       chart: {

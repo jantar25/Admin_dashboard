@@ -23,20 +23,22 @@ const Transactions = () => {
         {isFetching && <div className='loading'>Telechargement...</div>}
         {transactions.length > 0? 
             <Table 
-                head={['ID','No REF','PAYANT','MONTANT','FRAIS','CLIENT','PHONE','OPERATEUR','MARCHANT','CODE',,"STATUS","DATE"]}
-                body={transactions.map(transaction=>([
+                head={['No','DATE','No TRANSACTION','CLIENT','PHONE','MARCHANT','CODE','MONTANT','FRAIS','ID','No REF','STATUT','TYPE','No LIQIDATION']}
+                body={transactions.map((transaction,index)=>([
+                    index+1,
+                    new Date(transaction.transactionDate).toJSON().slice(0, 10),
                     transaction.transactionUid,
-                    transaction.referenceNumber,
-                    transaction.serviceChargePaidBy,
-                    transaction.paidAmount,
-                    transaction.serviceCharge,
                     transaction.customerNames,
                     transaction.customerMsisdn,
-                    transaction.mno,
                     transaction.merchantNames,
                     transaction.merchantCode,
+                    transaction.paidAmount,
+                    transaction.serviceCharge,
+                    transaction.paymentId,
+                    transaction.referenceNumber,
                     transaction.transactionStatus,
-                    new Date(transaction.transactionDate).toJSON().slice(0, 10)
+                    transaction.serviceChargePaidBy,
+                    transaction.mno,
                 ]))}
                 />
                 : <div className='not-found'>Pas de clients</div>

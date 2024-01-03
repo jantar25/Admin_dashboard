@@ -66,14 +66,12 @@ const Table = ({head,body,resetUserPassword,activateUser,deactivateUser}) => {
                     </td> }
                     {head.includes("ACTION") && 
                     <td>
-                        <div>
-                            <select onChange={(e) => handleActionChange(e, seller[0])}>
-                                <option value="">--Choisir l'action--</option>
-                                <option value="resetPassword">Réinitialiser Password</option>
-                                <option value="activateUser">Activer</option>
-                                <option value="deactivateUser">Désactivé</option>
-                            </select>
-                        </div>
+                        <select className='table-selector' onChange={(e) => handleActionChange(e, seller[0])}>
+                            <option value="">--Choisir l'action--</option>
+                            <option value="resetPassword">Réinitialiser Password</option>
+                            <option value="activateUser">Activer</option>
+                            <option value="deactivateUser">Désactivé</option>
+                        </select>
                     </td> }
                 </tr>
                 ))}
