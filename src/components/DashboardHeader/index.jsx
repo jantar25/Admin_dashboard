@@ -35,11 +35,11 @@ function DashboardHeader ({handleSidebar}) {
                     className='dashbord-header-icon' />
                 <img
                     className='dashbord-header-avatar'
-                    src='https://reqres.in/img/faces/9-image.jpg' 
+                    src={currentUser.image} 
                     alt='user-avatar'/>
                 <div className='dashbord-header-title'>
-                    <h6>Glody</h6>
-                    <span>Administrateur</span>
+                    <h6>{currentUser.name}</h6>
+                    <span>{currentUser.isAdmin? "Administrateur":"Marchand"}</span>
                 </div>
             </div>
         </div>

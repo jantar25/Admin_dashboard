@@ -1,0 +1,103 @@
+.profile-container {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+}
+
+.profile-container .profil-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profile-container .profil-wrapper .left {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+.profil-wrapper .left img {
+    width: 70%;
+    border-radius: 10px;
+}
+
+.profil-wrapper .left p {
+    cursor: pointer;
+    margin: 30px 0px;
+    color: #2075bc;
+    font-weight: 800;
+}
+
+.profil-wrapper .left p:hover {
+    text-decoration: underline;
+}
+
+.profile-container .profil-wrapper .right {
+    flex: 1;
+    padding: 20px;
+}
+
+.profil-wrapper .right h1 {
+    font-size: 50px;
+    color: #2075bc;
+    font-weight: 900;
+}
+
+.profil-wrapper .right span {
+    font-size: 30px;
+    color: gray;
+    font-weight: 700;
+}
+
+.profil-wrapper .right p {
+    text-align: center;
+    font-size: 20px;
+    color: rgb(183, 183, 183);
+    font-weight: 600;
+    padding: 10px;
+    border: 2px #2075bc dashed;
+    cursor: pointer;
+}
+
+.profil-wrapper .right p:hover {
+    border: 2px gray dashed;
+    color: #2075bc;
+}
+
+.hidden {
+    display: none;
+}
+
+@media only screen and (max-width: 798px) {
+    .profile-container .profil-wrapper {
+        flex-direction: column;
+    }
+    .profil-wrapper .left p {
+        margin: 10px 0px;
+        color: #2075bc;
+    }
+    .profil-wrapper .left img {
+        width: 100%;
+    }
+    .profil-wrapper .right h1 {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .profil-wrapper .right span {
+        font-size: 20px;
+        margin: 0 auto;
+    }
+    .profil-wrapper .right p {
+        font-size: 10px;
+        padding: 5px;
+        margin-top: 10px;
+    }
+    .profile-container .profil-wrapper .left {
+        padding: 5px 20px;
+    }
+    .profile-container .profil-wrapper .right {
+        padding: 5px 20px;
+    }
+}

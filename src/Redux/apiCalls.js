@@ -92,9 +92,9 @@ export const searchClients = async (dispatch,search) =>{
 export const userLogin = async (dispatch,user) =>{
     dispatch(userLoginStart());
     if (user.userCode === 'Admin' && user.password === '123') {
-        dispatch(userLoginSuccess({...user,isAdmin:true}));
+        dispatch(userLoginSuccess({...user, isAdmin:true, name:'Boniface Pretre',email:'boniface@gmail.com', number:'0722889900',image:'https://reqres.in/img/faces/9-image.jpg'}));
     } else if (user.userCode === 'Client' && user.password === '123') {
-        dispatch(userLoginSuccess({...user,isAdmin:false}));
+        dispatch(userLoginSuccess({...user, isAdmin:false, name:'Jantar Man',email:'jantar@gmail.com', number:'0722555900',image:'https://reqres.in/img/faces/9-image.jpg'}));
     } else {
         dispatch(userLoginFailure('Username and/or password incorrecte'))
         setTimeout(() => {
