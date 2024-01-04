@@ -69,6 +69,7 @@ td span {
 .table-selector {
   width: 50%;
   padding: 3px;
+  color: gray;
 }
 
 .moreInfo {
