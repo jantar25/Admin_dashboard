@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 
 import { getClients,searchClients } from '../../Redux/apiCalls';
 import './styles.css';
-import { cardItemsClients } from '../../constants/cards'
+import { operateurClientCardItems,clientCardItems } from '../../constants/cards'
 import Cards from '../../components/Cards/Cards'
 import Table from '../../components/Table/Table'
 import searchIcon from '../../assets/icons/search.svg'
@@ -28,7 +28,8 @@ function Clients () {
 
     return(
         <div className='dashboard-content'>
-            <Cards cardItems={cardItemsClients} /> 
+            <Cards cardItems={clientCardItems} /> 
+            <Cards cardItems={operateurClientCardItems} /> 
             <div className='dashboard-content-container'>
                 <div className='dashboard-content-header'>
                     <div className='dashboard-content-search'>

@@ -7,7 +7,7 @@ import Table from '../../components/Table/Table';
 
 import './styles.css';
 import Cards from '../../components/Cards/Cards';
-import {cardItemsClients} from '../../constants/cards';
+import {marchandsCardItems} from '../../constants/cards';
 import ClientForm from '../../components/ClientForm/ClientForm';
 import searchIcon from '../../assets/icons/search.svg'
 
@@ -43,7 +43,7 @@ function Orders () {
 
     return(
         <div className='dashboard-content'>
-            <Cards cardItems={cardItemsClients} />
+            <Cards cardItems={marchandsCardItems} />
             {toggleForm &&
                 <div className='modal-container'>
                     <div className='modal-cover'>

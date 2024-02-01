@@ -4,7 +4,7 @@ import all_Users from '../../constants/users';
 import Table from '../../components/Table/Table';
 import Cards from '../../components/Cards/Cards';
 import ResetPasswordForm from '../../components/ResetPasswordForm/ResetPasswordForm';
-import {cardItemsClients} from '../../constants/cards';
+import { usersCardItems } from '../../constants/cards';
 import './users.css'
 
 const Users = () => {
@@ -32,7 +32,7 @@ const Users = () => {
   
   return (
     <div className='users-container'>
-      <Cards cardItems={cardItemsClients} />
+      <Cards cardItems={usersCardItems} />
       {toggleResetPasswordForm && 
         <div className='modal-container'>
           <div className='modal-cover'>
