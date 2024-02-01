@@ -17,6 +17,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.Card-container-up h3 {
+    margin: 0;
+    color: #012f49;
 }
 
 .icon-container {
@@ -37,29 +43,31 @@
     justify-content: flex-start;
     margin-bottom: 10px;
     color: #004B77;
+} 
+
+.card-amount-container .amount-container {
+    display: flex;
+    align-items: center;
 }
 
-.card-amount-container h2 {
+.card-amount-container .number-container {
+    display: flex;
+    align-items: center;
+}
+
+.card-amount-container h1 {
     margin: 0;
-}
-
-.arrow-container {
-    display: inline;
-    margin-left: 10px;
-}
-
-.arrow-container span {
     margin-left: 5px;
+    font-size: 20px;
 }
 
-.increase {
-    color: rgb(9, 105, 9);
-    font-weight: 600;
+.card-amount-container span {
+    color: rgb(136, 134, 134);
 }
 
-.decrease {
-    color: rgb(204, 12, 12);
-    font-weight: 600;
+.amount-container .currency {
+    font-size: 10px;
+    color: #004B77;
 }
 
 .Card-container-bottom {
