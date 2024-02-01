@@ -3,7 +3,7 @@ import {useSelector,useDispatch} from 'react-redux';
 
 import Cards from '../../components/Cards/Cards';
 import { getTransactions } from '../../Redux/apiCalls';
-import { cardItemsTransaction } from '../../constants/cards';
+import { transactionCardItems } from '../../constants/cards';
 import Table from '../../components/Table/Table';
 import './Transactions.css'
 
@@ -17,7 +17,7 @@ const Transactions = () => {
 
   return (
     <div className='dashboard-content'>
-        <Cards cardItems={cardItemsTransaction} /> 
+        <Cards cardItems={transactionCardItems} /> 
         <div className='dashboard-content-container'>
             {isFetching && <div className='loading'>Telechargement...</div>}
             {transactions.length > 0? 

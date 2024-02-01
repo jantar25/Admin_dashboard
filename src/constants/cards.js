@@ -1,6 +1,3 @@
-import { ReactComponent as ClientIcon } from "../assets/icons/clients.svg";
-import { ReactComponent as activeIcon } from "../assets/icons/time.svg";
-
 export const cardItems = [
   {
     id: 1,
@@ -180,25 +177,64 @@ export const usersCardItems = [
   },
 ];
 
-export const cardItemsTransaction = [
+export const transactionCardItems = [
   {
     id: 1,
-    title: "Total",
-    amount: 2341,
-    lastIncome: 2219,
-    description: "Depuis le debut",
-    Icon: ClientIcon,
-    color: "#004B77",
-    background: "#cee2ee",
+    title: "Transaction total du jour",
+    amount: 23400,
+    number: 20,
+    description: "Depuis 24 heure",
   },
   {
     id: 2,
-    title: "Total",
-    amount: 1780,
-    lastIncome: 2110,
-    description: "Pendant le 90 jours",
-    Icon: activeIcon,
-    color: "#044404",
-    background: "#c4e6c4",
+    title: "Transaction total de la semaine",
+    amount: 234000,
+    number: 150,
+    description: "Depuis 7 jours",
+  },
+  {
+    id: 3,
+    title: "Transaction total du mois",
+    amount: 2340000,
+    number: 2100,
+    description: "Pendant ce mois ci",
+  },
+  {
+    id: 4,
+    title: "Transaction total anterieur",
+    amount: 13400,
+    number: 180,
+    description: "Pendant le mois precedant",
+  },
+];
+
+export const liquidationCardItems = [
+  {
+    id: 1,
+    title: "Liquidation total du jour",
+    amount: 23400,
+    number: 20,
+    description: "Depuis 24 heure",
+  },
+  {
+    id: 2,
+    title: "Liquidation total de la semaine",
+    amount: 234000,
+    number: 150,
+    description: "Depuis 7 jours",
+  },
+  {
+    id: 3,
+    title: "Liquidation total du mois",
+    amount: 2340000,
+    number: 2100,
+    description: "Pendant ce mois ci",
+  },
+  {
+    id: 4,
+    title: "Liquidation total anterieur",
+    amount: 13400,
+    number: 180,
+    description: "Pendant le mois precedant",
   },
 ];

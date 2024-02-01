@@ -2,12 +2,12 @@ import React from 'react'
 import liquidations from '../../constants/liquidation';
 import Table from '../../components/Table/Table';
 import Cards from '../../components/Cards/Cards';
-import {usersCardItems} from '../../constants/cards';
+import {liquidationCardItems} from '../../constants/cards';
 
 const Liquidations = () => {
   return (
     <div className='users-container'>
-      <Cards cardItems={usersCardItems} />
+      <Cards cardItems={liquidationCardItems} />
       <div className="users-table-container">
         <Table 
           head={['No','DATE','No LIQUIDATION','MARCHAND','MOYEN DE LIQUIDATION','No DE COMPTE','No REFERENCE']}
