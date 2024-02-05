@@ -8,14 +8,15 @@ import Table from '../../components/Table/Table';
 const Dashboard = () => {
   const {transactions} = useSelector(state => state.transactions)
   const {marchants} = useSelector(state => state.marchants)
+  const {currentUser} = useSelector(state => state.currentUser)
   
   return (
     <div>
       <div>
-        <Cards cardItems={cardItems} />
+        {currentUser?.isAdmin && <Cards cardItems={cardItems} />}
         <Cards cardItems={paymentDashboardCardItems} />
         <Cards cardItems={liquidationDashboardCardItems} />
-        <Cards cardItems={operateurDashboardCardItems} />
+        {currentUser?.isAdmin && <Cards cardItems={operateurDashboardCardItems} />}
       </div>
       <div>
         <h2>Les transactions recentes</h2>
